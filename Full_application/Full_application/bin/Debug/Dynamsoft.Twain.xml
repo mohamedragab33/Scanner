@@ -1,0 +1,3736 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dynamsoft.Twain</name>
+    </assembly>
+    <members>
+        <member name="T:Dynamsoft.TWAIN.Business.TwainBase">
+            <summary>
+            Summary description for TwainBase.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Business.TwainBase.SelectSourceByIndex(System.Int32)">
+            <summary>
+            open the data source in m_idSourceList
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Business.TwainBase.OpenSource">
+            <summary>
+            open the default data source
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Business.TwainBase.OpenSourceManager">
+            <summary>
+               Function name: OpenSourceManager
+               Description: Load source manager and open it
+               Return:	TRUE: successful, 
+            		    FALSE: failed. The client should call GetErrorCode and GetErrorString to get more information
+               Steps: 1. load source manager
+            	     2. open it
+            	     3. populate source list
+               Comment:	there is not a callable function of LoadSourceManager
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Business.TwainOperateWrapper">
+            <summary>
+            Summary description for TwainOperateWrapper.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Common.CImage.Dispose">
+            <summary>
+            Dispose the object.
+            </summary>
+            
+            <remarks><para>Frees unmanaged resources used by the object. The object becomes unusable
+            after that.</para>
+            
+            <par><note>The method needs to be called only in the case if unmanaged image was allocated
+            using <see cref="!:Create"/> method. In the case if the class instance was created using constructor,
+            this method does not free unmanaged memory.</note></par>
+            </remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Common.CImage.Dispose(System.Boolean)">
+            <summary>
+            Dispose the object.
+            </summary>
+            
+            <param name="disposing">Indicates if disposing was initiated manually.</param>
+            
+        </member>
+        <member name="T:Dynamsoft.Common.ConstStringHelper">
+            <summary>
+            Summary description for ConstStringHelper.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Common.Margin">
+            <summary>
+            stores a set of four integers that represent the location and size of a rect.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Common.Margin.Left">
+            <summary>
+            Gets the x-coorindate of the upper-left corner of the rect.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Common.Margin.Top">
+            <summary>
+            Gets the y-coorindate of the upper-left corner of the rect.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Common.Margin.Right">
+            <summary>
+            Gets the y-coorindate of the bottom-right corner of the rect.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Common.Margin.Bottom">
+            <summary>
+            Gets the x-coorindate of the bottom-right corner of the rect.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Dynamsoft.Common.SImageInfo.last_c_index" -->
+        <member name="T:Dynamsoft.Common.Util">
+            <summary>
+            Summary description for Util.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Common.Util.Clone(System.Drawing.Bitmap)">
+            <summary>
+            Clone image.
+            </summary>
+            
+            <param name="source">Source image.</param>
+            
+            <returns>Return clone of the source image.</returns>
+            
+            <remarks>The original <see cref="M:System.Drawing.Bitmap.Clone(System.Drawing.Rectangle,System.Drawing.Imaging.PixelFormat)">Bitmap.Clone()</see>
+            does not produce the desired result - it does not create an actual clone (it does not create a copy
+            of the image). That is why this method was implemented to provide the functionality.</remarks> 
+            
+        </member>
+        <member name="M:Dynamsoft.Common.Util.Clone(System.Drawing.Imaging.BitmapData)">
+             <summary>
+             Clone image.
+             </summary>
+             
+             <param name="sourceData">Source image data.</param>
+            
+             <returns>Clones image from source image data. The message does not clone pallete in the
+             case if the source image has indexed pixel format.</returns>
+             
+        </member>
+        <member name="M:Dynamsoft.Common.Util.CopyUnmanagedMemory(System.IntPtr,System.IntPtr,System.Int32)">
+             <summary>
+             Copy block of unmanaged memory.
+             </summary>
+             
+             <param name="dst">Destination pointer.</param>
+             <param name="src">Source pointer.</param>
+             <param name="count">Memory block's length to copy.</param>
+             
+             <returns>Return's value of <paramref name="dst"/> - pointer to destination.</returns>
+             
+             <remarks><para>This function is required because of the fact that .NET does
+             not provide any way to copy unmanaged blocks, but provides only methods to
+             copy from unmanaged memory to managed memory and vise versa.</para></remarks>
+            
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainManager">
+            <summary>
+            A class that provides functionality to get image data from all TWAIN compatible devices.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.AcquireImage(Dynamsoft.TWAIN.Interface.IAcquireCallback)">
+            <summary>
+            Displays the source's built-in interface to acquire image.
+            </summary>
+            <returns>
+             
+            True indicates success. False indicates failure. 
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            This method does the same thing as EnableSource(). 
+            This method is used to help users to handle Twain-compliant image acquisition devices without knowing the terms used in Twain specification.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapGet">
+            <summary>
+            Gets the information of the capability specified by the Capability property.
+            </summary>
+            <returns>
+            
+            True indicates success. False indicates failure. 
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set Capability property before invoking CapGet().
+            If only one type for the returned value of this capability is supported, there is no need to set CapType property since it will be returned from the source when CapGet() is called.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapGetCurrent">
+            <summary>
+            Returns the current value of the specified capability for the source.
+            </summary>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set Capability property before invoking CapGetCurrent().
+            After calling CapGetCurrent(), please check CapType property for the type this capability supports. 
+            This process is similar to CapGet(), please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapGetDefault">
+            <summary>
+            Returns the default value for the specified capability of the source.
+            </summary>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set Capability property before invoking CapGetDefault().
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapIfSupported(Dynamsoft.TWAIN.Enums.TWQC)">
+            <summary>
+            Checks if the source supports a particular operation of the capability.
+            </summary>
+            <param name="enumMessageType">
+            TWQC type: specifies the type of capability operation.
+            Value Description 
+            TWQC_GET (1): If CapGet() is supported by the capability.  
+            TWQC_SET (2): If CapSet() is supported by the capability.  
+            TWQC_GETDEFAULT (4): If CapGetDefault() is supported by the capability.  
+            TWQC_GETCURRENT (8): If CapGetCurrent() is supported by the capability. 
+            TWQC_RESET (16): If CapReset() is supported by the capability. 
+            
+            </param>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occur, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set Capability property before calling CapIfSupported().
+            </remarks> 
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapReset">
+            <summary>
+            Resets the current capability.
+            </summary>
+            <returns>True indicates success. False indicates failure.</returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set Capability property before invoking CapReset.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapSet">
+            <summary>
+            Sets the detailed information of the specified capability.
+            </summary>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>  
+            Please refer to How to Negotiate Capability with Different Capability Container Types for details.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CapSetFrame(System.Int32,Dynamsoft.Common.Margin)">
+            <summary>
+            Sets the values of the specified frame.
+            </summary>
+            <param name="iIndex">
+            Specifies which frame to set. The index is 0-based.
+            </param>
+            <param name="fLeft">
+            Specifies the value (in ICAP_UNITS) of the left edge of the specified frame.
+            </param>
+            <param name="fTop">
+            Specifies the value (in ICAP_UNITS) of the top edge of the specified frame.
+            </param>
+            <param name="fRight">
+            Specifies the value (in ICAP_UNITS) of the right edge of the specified frame.
+            </param>
+            <param name="fBottom">
+            Specifies the value (in ICAP_UNITS) of the bottom edge of the specified frame.
+            </param>
+            <returns>
+             
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            The default unit is "inches" unless it has been otherwise negotiated between the application and the source.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CloseSource">
+            <summary>
+            Closes Data Source.
+            </summary>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            CloseSource() will be called automatically when exiting the application since Dynamic .NET TWAIN has a built-in Wizard Mode.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.CloseSourceManager">
+            <summary>
+            Closes and unloads Data Source Manager.
+            </summary>
+            <returns>
+             
+            True indicates success. False indicates failure. 
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            CloseSourceManager() will be called automatically when exiting the application if it is not called explicitly by the application.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.DisableSource">
+            <summary>
+            Disables the source. If the source's user interface is displayed when the source is enabled, it will be closed.
+            </summary>
+            <returns>
+             
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            After DisableSource() is called, the Source will be in State 4(Source is opened but not enabled) where you can do capability negotiationn.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.EnableSource(Dynamsoft.TWAIN.Interface.IAcquireCallback)">
+            <summary>
+            Enables the source which means start the scanning process.
+            </summary>
+            <returns> 
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            modified by soul/Vincy
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.FeedPage">
+            <summary>
+            Ejects the current page and begins scanning the next page in the document feeder.
+            </summary>
+            <returns>
+             
+            True indicates success. False indicates failure. 
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set this method after opening the Data Source (see OpenSource() method) and IfFeederEnabled property is set to true. 
+            </remarks> 
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.OpenSource">
+            <summary>
+            Loads the currently selected source into main memory and initialize it for image acquisition. 
+            If no source is specified (neither SelectSource() nor SelectSourceByIndex() has been called), the default source will be loaded.
+            </summary>
+            <returns>True indicates success. False indicates failure. </returns> 
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            OpenSource() should be called before capability negotiation.
+            The capability is available after OpenSource is called.
+            </remarks>
+            modified by soul/Vincy
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.OpenSourceManager">
+             <summary>
+             Loads and opens Data Source Manager.
+             </summary> 
+             <returns>
+             True indicates success. False indicates failure. 
+             </returns>
+             <exception cref="T:Dynamsoft.TWAIN.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+            <remarks>
+            If application identification information needs to be set, it should be set before OpenSourceManager().
+            Dynamic .NET TWAIN has a built-in Wizard Mode. With Wizard Mode, OpenSourceManager() is called automatically when needed by methods like EnableSource() or SelectSource().
+            OpenSourceManager() populates Source NameItems property with a list of installed sources. SourceNameItems property along with other properties and methods can be used to customize source selection interface.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.ResetImageLayout">
+            <summary>
+            Resets the image layout in the Data Source to default. 
+            </summary> 
+            <returns>True indicates success. False indicates failure. </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.RewindPage">
+            <summary>
+            If IfFeederEnabled is true, the source will return the current page to the input side of the document feeder and feed the last page from the outside of the feeder back into the acquisition area. 
+            </summary>
+            <returns>
+            True indicates success. False indicates failure. 
+            </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SelectSource">
+            <summary>
+            Brings up the TWAIN Data Source Manager's Source Selection User Interface (UI) so that the user can choose which Data Source to be the current Source.
+            </summary>
+            <returns>True indicates success. False indicates failure.</returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            // modified by soul/Vincy
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SelectSourceByIndex(System.Int32)">
+            <summary>
+            Selects a Data Source by its index in the Data Source Managet.
+            </summary>
+            <param name="iIndex">int iIndex. It is the index of the target Data Source in SourceNameItems property.</param>
+            <returns>True indicates success. False indicates failure.</returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The index is 0-based.
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dynamsoft.TWAIN.TwainManager.SetFileXFERInfo(System.String,Dynamsoft.TWAIN.Enums.TWICapFileFormat)" -->
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SetImageLayout(Dynamsoft.Common.Margin)">
+            <summary>
+            Sets the left, top, right, and bottom sides of the image layout rectangle for the current Data Source. In other words, sets which area will be scanned.
+            </summary>
+            <param name="fLeft">Float fLeft: specifies the floating-point number for the left side of the image layout rectangle.</param>
+            <param name="fTop">Float fTop: specifies the floating-point number for the top side of the image layout rectangle.</param>
+            <param name="fRight">Float fRight: specifies the floating-point number for the right side of the image layout rectangle.</param>
+            <param name="fBottom">Float fBottom: specifies the floating-point number for the bottom side of the image layout rectangle.</param>
+            <returns>True indicates success. False indicates failure.</returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>The image layout rectangle defines what portion of the Data Source's scanning area is acquired. Please set unit property before using this method</remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.LoadCustomDSData(System.String)">
+            <summary>
+            Loads the configurations of the source's users interface saved by SaveCustomDSData or SaveCustomDSDataEx.
+            </summary>
+            <param name="strFileName">The path of the file used for storing custom Data Source data.e.g."C:\\webtwain.jpg"
+            </param>
+            <returns> 
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            You can set IfShowUI to true to display the user interface of the source.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.LoadCustomDSDataEx(System.Byte[])">
+            <summary>
+            Loads the configurations of the source's users interface saved by SaveCustomDSData or SaveCustomDSDataEx.
+            </summary>
+            <param name="bytData">The string of the file which represents the custom Data Source data.
+            </param>
+            <returns> 
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            You can set IfShowUI to true to display the user interface of the source.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SaveCustomDSData(System.String)">
+            <summary>
+            Saves the settings of the source's user interface.
+            </summary>
+            <param name="strSaveFileName">The absolute path of the file where the custom Data Source data is stored.
+            </param>
+            <returns> 
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            You can set IfShowUI to true to display the user interface of the source.
+            After saving the settings of the UI, you can use LoadCustomDSData or LoadCustomDSDataEx to restore the configurations.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SaveCustomDSDataEx(System.Byte[]@)">
+            <summary>
+            Saves the settings of the source's user interface.
+            </summary>
+            <param name="bytData">The string of the file which represents the custom Data Source data.
+            </param>
+            <returns> 
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            You can set IfShowUI to true to display the user interface of the source.
+            After saving the settings of the UI, you can use LoadCustomDSData or LoadCustomDSDataEx to restore the configurations.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.GetDefaultImageLayout">
+            <summary>
+            Retrieves the left, top, right, and bottom sides of the current Data Source's default image layout rectangle.
+            </summary>
+            
+            <param name="fLeft">The floating-point number for the left side of the default image layout rectangle. </param>
+            <param name="fTop">The floating-point number for the top side of the default image layout rectangle.  </param>
+            <param name="fRight">The floating-point number for the right side of the default image layout rectangle.  </param>
+            <param name="fBottom">The floating-point number for the bottom side of the default image layout rectangle. </param>
+            <returns>
+            True indicates success. False indicates failure. 
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            The image layout rectangle defines what portion of the Data Source's scanning area is acquired.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.GetImageLayout">
+            <summary>
+            Retrieves the left, top, right, and bottom sides of the image layout rectangle for the current Data Source.
+            </summary>
+            <param name="fLeft">The floating-point number for the left side of the image layout rectangle.</param>
+            <param name="fTop">The floating-point number for the top side of the image layout rectangle.</param>
+            <param name="fRight">The floating-point number for the right side of the image layout rectangle.</param>
+            <param name="fBottom">The floating-point number for the bottom side of the image layout rectangle.</param>
+            <returns>
+            True indicates success. False indicates failure. 
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            The image layout rectangle defines the portion of the Data Source's scanning area.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SourceNameItems(System.Int16)">
+            <summary>
+            Holds an array of source names.
+            </summary>
+            <param name="sIndex">The index is 0-based and can not be larger than SourceCount property.</param>
+            <returns>
+            A list of source names.
+            </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            This property has a parameter.
+            </remarks>           
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.GetCapItems(System.Int32)">
+            <summary>
+            Returns an array of values of the capability specified by Capability property, when the value of the CapType property is TWON_ARRAY or TWON_ENUMERATION. 
+            This is a runtime property.
+            </summary>
+            <param name="iIndex">The index is 0-based.</param>
+            <returns>
+            Capability property value.
+            </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method.
+            This property has a parameter. The data type of the parameter is int and it is 0-based.
+            The GetCapItems is used to return the result in Double, Single(Float), Long, Integer and Boolean types. To return String type, please use GetCapItemsString. 
+            When using Double type for Boolean type, 1 indicates true, 0 indicates false. The constant true/false of Visual Basic can NOT be used.
+            This property is similar to CapValue property and CapValueString property. CapValueString property is used to present String type while CapValue is used to present other types. CapValue property and CapValueString property are used when the container type is TWON_ONEVALUE.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SetCapItems(System.Int32,System.Double)">
+            <summary>
+            Sets an array of values of the capability specified by Capability property, when the value of the CapType property is TWON_ARRAY or TWON_ENUMERATION. 
+            This is a runtime property.
+            </summary>
+            <param name="iIndex">The index is 0-based.</param>
+            <param name="dbValue">Capability property value.</param>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            After setting this property, call CapSet() method to set the value.
+            The SetCapItems property is used to return the results of Double, Single(Float), Long, Integer and Boolean types. To return String type, please use SetCapItemsString. 
+            When using Double type for Boolean type, 1 indicates true, 0 indicates false. The constant true/false of Visual Basic can NOT be used.
+            This property is similar to CapValue property and CapValueString property. CapValueString property is used to present String type while CapValue is used to present other types. CapValue property and CapValueString property are used when the container type is TWON_ONEVALUE.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.GetCapItemsString(System.Int32)">
+            <summary>
+            Returns or sets an array of values of the capability specified by Capability property, when the value of the CapType property is TWON_ARRAY or TWON_ENUMERATION.
+            This is a runtime property.
+            </summary>
+            <param name="iIndex">The index is 0-based.</param>
+            <returns>
+            Capability property value.
+            </returns>            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. 
+            This property has a parameter. The data type of the parameter is int and it is 0-based.
+            GetCapItemsString is used to return String values. For other data types, please use GetCapItems.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SetCapItemsString(System.Int32,System.String)">
+            <summary>
+            Sets an array of values of the capability specified by Capability property, when the value of the CapType property is TWON_ARRAY or TWON_ENUMERATION.
+            This is a runtime property.
+            </summary>
+            <param name="iIndex">The index is 0-based.</param>
+            <param name="strValue">Capability property value.</param>
+            <returns>
+            True indicates success. False indicates failure.
+            </returns>            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            After setting this property, please call CapSet() method to set the value.
+            SetCapItemsString property is used to set String type values. For other data types, please use SetCapItems property.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.GetBarcodeText(System.Int32)">
+            <summary>
+            Gets barcode content by specified index. It's only valid in OnPostTransfer event.
+            </summary>
+            <param name="barcodeIndex">Specifies the index of barcode in image. The index is 0-based.</param>
+            <returns>
+            Barcode content.
+            </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            An empty string will be returned if the Source doesn't support barcode detection or the image data doesn't contain barcode.
+            GetBarcodeText method along with other properties about information of the current image is valid only in OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.GetBarcodeInfo(Dynamsoft.TWAIN.Enums.TWEIBarcode,System.Int32)">
+            <summary>
+            Gets barcode type value by specified index and type. The index is 0-based. It's only valid in OnPostTransfer event.
+            </summary>
+            <param name="barcodeInfoType">Defined in TWAIN specification.</param>
+            <param name="barcodeIndex">Specifies the index of barcode in image. The index is 0-based.</param>
+            <returns>
+            No limit
+            </returns>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            GetBarcodeInfo method along with other properties about information of the current image is valid only in OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.EnableSourceUI">
+            <summary>
+            Displays the user interface of the source to change and save the settings for DPI, paper size, etc.
+            </summary>
+            <returns> 
+            True indicates success. False indicates failure.
+            </returns>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            modified by ellie/Vincy
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.SetWindowHandle(System.IntPtr)">
+            <summary>
+            Sets an application window handle. It's not required by default. Please call it when the scanning process fails to start. e.g. ScanInNewProcess is set to false or the source is not available. 
+            </summary>
+            <param name="handle">Application window handle</param>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainManager.ProcessMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            It's not required by default. Please call it when the scanning process fails to start. e.g. ScanInNewProcess is set to false or the source is not available. 
+            </summary>
+            <param name="hwnd"></param>
+            <param name="message"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.BitDepth">
+            <summary>
+            Returns or sets the pixel bit depth for the current value of PixelType property. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            This property supports 1,8,24,32bit.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Brightness">
+            <summary>
+            Returns or sets the brightness for scanning by the Data Source.
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Capability">
+            <summary>
+            Specifies the capability to be negotiated. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Prior to negotiating capability, OpenSource() needs to be called to make Dynamic .NET TWAIN ready for capability negotiation.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapCurrentIndex">
+            <summary>
+            Returns or sets the index (0-based) of the current value of a capability. It will return a list to indicate the Current Value when the value of the CapType property is TWON_ENUMERATION.
+            If the data type of the capability is String, the list is in GetCapItemsString. 
+            For other data types, the list is in GetCapItems. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. After setting this property, you can call CapSet() method to set its value.
+            The CapCurrentIndex property is 0-based.
+            It is valid only when the CapType property is TWON_ENUMERATION.
+            For information of which properties are valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapCurrentValue">
+            <summary>
+            Returns or sets the current value in a range when the value of the CapType property is TWON_RANGE.
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method.
+            After setting this property, you can call CapSet() method to set its value.
+            CapCurrentValue property is valid only when the value of the CapType property is TWON_RANGE.
+            For information of which properties are valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapDefaultIndex">
+            <summary>
+            Returns the index (0-based) of the default value of a capbility. It will return a list to indicate the Default Value when the value of the CapType property is TWON_ENUMERATION. when the value of the CapType property is TWON_ENUMERATION. If the data type of the capability is String, the list is in GetCapItemsString. For other data types, the list is in GetCapItems property. 
+            This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method.
+            The CapDefaultIndex property is 0-based and read-only.
+            It is valid only when the CapType property is TWON_ENUMERATION.
+            For information of which properties are valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapDefaultValue">
+            <summary>
+            Returns the default value in a range when the value of the CapType property is TWON_RANGE.
+            This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method.
+            Default value reflects the source's power-on value. It can NOT be set.
+            CapDefaultValue property is valid only when the value of the CapType property is TWON_RANGE.
+            For information of which properties are valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapMaxValue">
+            <summary>
+            Returns or sets the maximum value in a range when the value of the CapType property is TWON_RANGE. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. After setting this property, please call CapSet() method to set the value.
+            CapMaxValue property is valid only when the value of the CapType property is TWON_RANGE.
+            To see the properties valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapMinValue">
+            <summary>
+            Returns or sets the minimum value in a range when the value of the CapType property is TWON_RANGE.
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. After setting this property, please call CapSet() method to set the value.
+            CapMinValue property is valid only when the value of the CapType property is TWON_RANGE.
+            To see the properties valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapNumItems">
+            <summary>
+            Returns or sets how many items are in the list when the value of the CapType property is TWON_ARRAY or TWON_ENUMERATION. For String data type, the list is in GetCapItemsString. For other data types, the list is in GetCapItems. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. 
+            After setting this property, please call CapSet() method to set the value.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapStepSize">
+            <summary>
+            Returns or sets the step size in a range when the value of the CapType property is TWON_RANGE.
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please read this property after calling CapGet() method. After setting this property, please call CapSet() method to set the value.
+            CapStepSize property is valid only when the value of the CapType property is TWON_RANGE.
+            To see the properties valid for different container types, please refer to CapType property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapType">
+            <summary>
+            Returns or sets the type of capability container used to exchange capability information between application and source. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            <list type="table">
+            <listheader>
+            <term>Allowed Values</term>
+            <description>Description</description>
+            </listheader>
+            <item><term>TWON_ARRAY(3)</term>
+            <description>
+            An array of associated individual values. 
+            CapNumItems property, GetCapItems/SetCapItems/GetCapItemsString/SetCapItemsString methods are valid.</description></item>
+            <item><term>TWON_ENUMERATION(4)</term>
+            <description>A group of associated individual values. The values are ordered from the lowest to highest, but the step size between every two values might not be the same.
+            CapNumItems property, CapCurrentIndex property, CapDefaultIndex property, GetCapItems/SetCapItems/GetCapItemsString/SetCapItemsString methods are valid.
+            </description></item>
+            <item><term>TWON_ONEVALUE(5)</term>
+            <description>A single value. CapValue property and CapValueString property are valid.</description>
+            </item>
+            <item><term>TWON_RANGE(6)</term>
+            <description>A range of individual values. 
+            CapMinValue property, CapMaxValue property, CapStepSize property, CapDefaultValue property and CapCurrentValue property are valid. 
+            </description></item>
+            </list>
+            <br/>
+            Please set CapType when setting a capability with CapSet. Please check CapType after reading a capability by CapGet. 
+            CapDefaultIndex property and CapDefaultValue property reflect power-on values and are not available with CapSet().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapValueType">
+            <summary>
+            Returns or sets the value type for reading the value of a capability. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. After setting this property, please call CapSet() method to set the value.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapValue">
+            <summary>
+            Returns or sets the value of the capability specified by Capability property when the value of the CapType property is TWON_ONEVALUE. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. After setting this property, please call CapSet() method to set the value.
+            The Double type of CapValue property is used to present Double, Single(Float), Long, Integer and Boolean types. For String type, please use CapValueString property. 
+            When using Double type for Boolean type, 1 indicates true, 0 indicates false. The constant true/false of Visual Basic can NOT be used.
+            This property is similar to GetCapItems and GetCapItemsString. GetCapItemsString is used to present String type while GetCapItems is used to present other types. GetCapItems and GetCapItemsString are used when the container type is TWON_ARRAY or TWON_ENUMERATION.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CapValueString">
+            <summary>
+            Returns or sets the string value for a capability when the value of the CapType property is TWON_ONEVALUE.
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please check this property after calling CapGet() method. After setting this property, please call CapSet() method to set the value.
+            CapValueString property is used to set or return String type value. For any other data types when the CapType property is TWON_ONEVALUE, please use CapValue property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Contrast">
+            <summary>
+            Returns or sets the contrast of the Source. 
+            This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+            ??? note remove WebcamManager
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.CurrentSourceName">
+            <summary>
+            Returns the device name of the current source.
+            This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            If no source is currently selected, CurrentSourceName property will return "".
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.DataSourceStatus">
+            <summary>
+            Returns a value indicating the data source status. 
+            This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Allowed values are between 0 and 3, defined in TWDataSourceStatus. 
+            0, indicates the data source is closed. 
+            1, indicates the data source is opened.
+            2, indicates the data source is enabled. 
+            3, indicates the data source is acquiring image. 
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.DefaultSourceName">
+            <summary>
+            Returns the name of default source. 
+            This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            ????
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Duplex">
+            <summary>
+            Returns whether the source supports duplex.
+            If yes, it further returns the level of duplex the Source supports (one pass or two pass duplex). This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            <list type="table">
+            <listheader>
+            <term>Values</term>
+            <description>Duplex</description>
+            </listheader>
+            <item><term>0</term>
+            <description>Duplex is not supported </description></item>
+            <item><term>1</term>
+            <description>1-pass duplex</description></item>
+            <item><term>2</term>
+            <description>2-pass duplex</description>
+            </item>
+            </list>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfAutoBright">
+            <summary>
+            Returns or sets whether to enable Auto-brightness feature for the Data Source. This is a runtime property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfAutoFeed">
+            <summary>
+            Returns or sets whether to enable the automatic document feeding process for the Data Source. This is a runtime property. 
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            If the value of this property is true, the Source will automatically feed the next page from the document feeder after the previous page is acquired.
+            Please set this property after opening the Data Source and checking if IfFeederEnabled property is true.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfAutoScan">
+            <summary>
+            Returns or sets whether to enables the automatic document scanning process for the Data Source. This is a runtime property. 
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            If the value of this property is true, the Source will automatically feed the next page from the document feeder after the previous page is acquired.
+            Please set this property after opening the Data Source and checking if IfFeederEnabled property is true.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfDeviceOnline">
+            <summary>
+            Returns whether the Source is attached, powered on and communicating. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfDisableSourceAfterAcquire">
+            <summary>
+            Returns or sets whether to close the User Interface after all images have been scanned and transferred. The default value of this property is false.
+            </summary>
+              
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            IfShowUI     IfDisableSourceAfterAcquire     Actions 
+            true         false                           UI will be shown, one or many images will be acquired(if supported by the DataSource), UI will not be closed automatically and needs to be closed manually.
+            true         true                            UI will be shown, one or many images will be acquired(if supported by the DataSource), UI will be closed automatically. 
+            false        false                           UI will not be shown, one or many images will be acquired(if supported by the DataSource), UI will not be closed automatically and needs to be closed manually. 
+            false        true                            UI will not be shown, one or many images will be acquired(if supported by the DataSource), UI will be closed automatically. 
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfDuplexEnabled">
+            <summary>
+            Returns or sets whether the Source supports duplex. If true, the scanner scans both sides of a paper. Otherwise, the scanner will scan only one side of the paper. This is a runtime property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Call OpenSource() method and confirm that the duplex is supported before using this property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfFeederEnabled">
+            <summary>
+            Returns or sets whether the Automatic Document Feeder (ADF) is enabled. This is a runtime property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            If the property is set to true, the Data Source will try acquiring images from the document feeder first and other feeder related capabilities can be used. If the value of this property is false, the Data Source will try acquiring data from the flatbed first and none of the feeder related capabilities can be used.
+            Call OpenSource() method before using this property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfFeederLoaded">
+            <summary>
+            Returns whether or not there are documents loaded in the Data Source's feeder when IfFeederEnabled and IfPaperDetectable are true. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Call OpenSource() method before using this property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfModalUI">
+            <summary>
+            Returns or sets whether the UI (User Interface) of Source runs in modal state. The default value of this property is true.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            If the property is true, the TWAIN Data Source will display its User Interface in modal window when invoking AcquireImage method.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfPaperDetectable">
+            <summary>
+            Returns whether the Source has a paper sensor that can detect documents on the ADF or Flatbed. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set this property after calling OpenSource() method.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfShowIndicator">
+            <summary>
+            Returns or sets whether the Source displays a progress indicator during acquisition and transfer regardless of the status of the Source's user interface. This is a runtime property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfShowUI">
+            <summary>
+            Returns or sets whether the Source displays the User Interface.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            If the property is true, the TWAIN Data Source will display its User Interface when invoking the AcquireImage method. 
+            If the property is false, the Data Source UI will not be displayed and scanning will begin immediately using the current settings.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.IfUIControllable">
+            <summary>
+            Returns whether the Source supports acquisitions with the UI (User Interface) disabled.  
+            'False' indicates that this Source can only support acquisitions with the UI enabled. This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Please set this property after calling OpenSource() method.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageBitsPerPixel">
+            <summary>
+            Returns the number of bits in each image pixel (or bit depth). This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurse, please check TwainException.
+            </exception>
+            
+            <remarks>
+            BitsPerPixel of a 24-bit RGB image is 24. BitsPerPixel for an 8-bit Grayscale image is 8. BitsPerPixel for a Black and White image is 1.
+            ImageBitsPerPixel property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageLayoutDocumentNumber">
+            <summary>
+            Returns the document number of the current image. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            Usually, increment when a group of new pages is placed into the document feeder (usually tell this has happened when the feeder empties).
+            ImageLayoutDocumentNumber property, along with other properties about information of the current image, is valid only in OnPreTransfer and OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageLayoutFrameNumber">
+            <summary>
+            Returns the frame number of the current image. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            The frames are acquired from the same page. The number will be reset when a new page is acquired.
+            ImageLayoutFrameNumber property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+            The frame information here is only about the current frame. To get the information about all the frames transferred in an acquire session, please use capability ICAP_FRAMES instead. Please refer to How To Negotiate ICAP_FRAMES for details and sample code.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageLayoutPageNumber">
+            <summary>
+            Returns the page number of the current image. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            This property will increase as the acquired page number increased.
+            ImageLayoutPageNumber property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageLength">
+             <summary>
+             Returns the height of the image in pixel. This is a runtime, read-only property.
+             </summary>
+             
+             <exception cref="T:Dynamsoft.TWAIN.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+             
+             <remarks>
+             If the Source such as handheld scanners failed to calculate the length of the image, -1 will be returned. 
+             ImageLength property along with other properties about information of the current imag, is valid only in OnPreTransfer and OnPostTransfer event.
+             </remarks>
+             
+             
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImagePixelType">
+             <summary>
+             Returns the pixel type of the current image. This is a runtime, read-only property.
+             </summary>
+             
+             <exception cref="T:Dynamsoft.TWAIN.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+             
+             <remarks>
+             <list type="table">
+             <listheader>
+             <term>Values</term>
+             <description>Description</description>
+             </listheader>
+             <item><term>TWPT_BW(0)</term>
+             <description>Black and White</description></item>
+             <item><term>TWPT_GRAY(1)</term>
+             <description>Grayscaled</description></item>
+             <item><term>TWPT_RGB(2)</term>
+             <description>RGB</description>
+             </item>
+             </list>
+             <br/>
+             ImagePixelType property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+             </remarks>
+             
+             
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageWidth">
+             <summary>
+             Returns the width of the image in pixel. This is a runtime, read-only property.
+             </summary>
+            
+             <exception cref="T:Dynamsoft.TWAIN.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+             
+             <remarks>
+             If the Source such as handheld scanners failed to calculate the length of the image, -1 will be returned. 
+             ImageWidth property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+             </remarks>
+             
+             
+             
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageXResolution">
+            <summary>
+            Returns the X resolution of the current image. X resolution is the number of pixels per ICAP_UNITS in the horizontal direction. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            The unit of ImageXResolution property is set by ICAP_UNITS capability.
+            The default unit is "inches" unless it has been otherwise negotiated between the application and source.
+            ImageXResolution property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+            </remarks>
+            
+            
+            
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ImageYResolution">
+            <summary>
+            Returns the Y resolution of the current image. Y resolution is the number of pixels per ICAP_UNITS in the vertical direction. This is a runtime, read-only property.
+            </summary>
+            
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            The unit of ImageYResolution property is set by ICAP_UNITS capability.
+            The default unit is "inches" unless it has been otherwise negotiated between the application and source.
+            ImageYResolution property along with other properties about information of the current image is valid only in OnPreTransfer and OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.PageSize">
+            <summary>
+            Returns or sets the page size(s) the Source uses to acquire image data. This is a runtime property. 
+            Please set the pagesize value in enum <see cref="T:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes"/>.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.PendingXFERs">
+            <summary>
+            Returns the number of transfers the Source is ready to supply, upon demand. This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            This property is valid only in OnPostTransfer event.
+            The Data Source will return -1 if it is not sure how many transfers are pending. Scanners with ADF (Automatic Document Feeder) will typically return -1 if the current image is not the last one.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.PixelFlavor">
+            <summary>
+            Returns or sets the pixel flavor for acquired images. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            <list type="table">
+            <listheader>
+            <term>Allowed Values</term>
+            <description>Description</description>
+            </listheader>
+            <item><term>0</term>
+            <description>Chocolate. Zero pixel represents darkest shade.</description></item>
+            <item><term>1</term>
+            <description>Vanilla. Zero pixel represents lightest shade.</description></item>
+            </list>
+            The default value is 0 i.e. the default value of PixelFlavor is Chocolate.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.PixelType">
+            <summary>
+            Returns or sets the pixel type of acquired images. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            <list type="table">
+            <listheader>
+            <term>Allowed Values</term>
+            <description>PixelType TWICapPixelType</description>
+            </listheader>
+            <item><term>0</term>
+            <description>BW</description></item>
+            <item><term>1</term>
+            <description>GRAY</description></item>
+            <item><term>2</term>
+            <description>RGB</description></item>
+            <item><term>3</term>
+            <description>PALETTE</description></item>
+            <item><term>4</term>
+            <description>CMY</description></item>
+            <item><term>5</term>
+            <description>CMYK</description></item>
+            <item><term>6</term>
+            <description>YUV</description></item>
+            <item><term>7</term>
+            <description>YUVK</description></item>
+            <item><term>8</term>
+            <description>CIEXYZ</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Resolution">
+            <summary>
+            Returns or sets the current resolution for image acquisition. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.SourceCount">
+            <summary>
+            Returns how many sources are available on the local system. This is a runtime, read-only property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            If SourceCount is 0, it means no source is available or the Source Manager is not open.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.TransferMode">
+            <summary>
+            Returns or sets the transfer mode. Please set the value of transfer mode in enum <see cref="T:Dynamsoft.TWAIN.Enums.TWICapSetupXFer"/>.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The default value for TransferMode property is TWSX_NATIVE (0). 
+            For DISK FILE mode, since it is not required by TWAIN, the application needs to make sure it is supported by the current Source. One way to do this is checking the TransferMode property after OpenSource() to see if it is still TWSX_FILE. 
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Unit">
+            <summary>
+            Returns or sets the unit of measure. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            <list type="table">
+            <listheader>
+            <term>Allowed Values</term>
+            <description>Unit</description>
+            </listheader>
+            <item><term>0</term>
+            <description>INCHES</description></item>
+            <item><term>1</term>
+            <description>CENTIMETERS</description></item>
+            <item><term>2</term>
+            <description>PICAS</description>
+            </item>
+            <item><term>3</term>
+            <description>POINTS</description>
+            </item>
+            <item><term>4</term>
+            <description>TWIPS</description>
+            </item>
+            <item><term>5</term>
+            <description>PIXELS</description>
+            </item>
+            </list>
+            Please set this property after calling OpenSource() method and before calling AcquireImage().
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.XferCount">
+            <summary>
+            Returns and sets the number of images your application will transfer per session. This is a runtime property.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            Allowed values are between -1 and 32767.
+            'N' indicates N images.
+            '-1'  indicates multiple images.
+            Please set this property after calling OpenSource() method.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.BlankImageMaxStdDev">
+            <summary>
+            Returns or sets the maximum standard deviation threshold of the pixels in an image which will be used to determine whether an image is blank.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The allowed values are from 0 to 100. 0 means it is a single-color image. The default value is 1.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.BlankImageThreshold">
+            <summary>
+            Returns or sets the dividing line between black and white. The default value is 128.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The allowed values are from 0 to 255. The default value is 128.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.Manufacturer">
+            <summary>
+            Returns or sets the manufacture string for the application identity.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The Manufacturer property is a part of the application identity. The application identity consists of the Manufacturer, ProductFamily, ProductName and VersionInfo properties. These information may be shown in Source's interface.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ProductFamily">
+            <summary>
+            Returns or sets the product family string for the application identity.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The ProductFamily property is a part of the application identity. The application identity consists of the Manufacturer, ProductFamily, ProductName and VersionInfo properties. These information may be shown in Source's interface.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ProductName">
+            <summary>
+            Returns or sets the product name string for the application identity.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The ProductName property is a part of the application identity. The application identity consists of the Manufacturer, ProductFamily, ProductName and VersionInfo properties. These information may be shown in Source's interface.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.VersionInfo">
+            <summary>
+            Returns or sets the version info string for the application identity.
+            </summary>
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            <remarks>
+            The VersionInfo property is a part of the application identity. The application identity consists of the Manufacturer, ProductFamily, ProductName and VersionInfo properties. These information may be shown in Source's interface.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.BarcodeCount">
+            <summary>
+            Returns the number of barcode detected in an image. It's only valid in OnPostTransfer event.
+            </summary>
+                       
+            <exception cref="T:Dynamsoft.TWAIN.TwainException">
+            When an error occurs, please check TwainException.
+            </exception>
+            
+            <remarks>
+            If the Source doesn't contain barcode or doesn't supported barcode, 0 will be returned.
+            BarcodeCount property along with other properties about information of the current image is valid only in OnPostTransfer event.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.LogLevel">
+             <summary>
+             Returns or sets whether enable the debug mode of Dynamic .NET TWAIN.
+             </summary>
+             // <exception cref="T:Dynamsoft.TWAIN.TwainException">
+             When an error occurs, please check TwainException.
+             </exception>
+             
+            <remarks>
+            The default value is 0. When the value i is set to 1, Dynamic .NET TWAIN will send all messages to an external Debugger tool for display. (eg. DgbView.exe)
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.MagType">
+            <summary>
+            Returns the magnetic type if the scanner supports magnetic data recognition. This is a read-only property.
+            </summary>
+            <remarks>Only valid when ScanInNewProcess is true</remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.MagData">
+            <summary>
+            Returns the magnetic data if the scanner supports magnetic data recognition. This is a read-only property.
+            </summary>
+            <remarks>This property needs scanner suppor and is valid only when ScanInNewProcess is true</remarks>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainManager.ScanInNewProcess">
+            <summary>
+            Acquires image in a new separate process. Default value is true.
+            </summary>
+            <remarks>
+            ScanInNewProcess should be called prior to negotiating capability.
+            </remarks>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapType">
+            <summary>
+            Capabilities exist in many varieties but all of them have a Default Value and a Current Value and may also have other values available. 
+            To help categorize the supported values into clear structures, TWAIN defines four types of containers for capabilities: 
+            TW_ONEVALUE, TW_ARRAY, TW_RANGE and TW_ENUMERATION.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapType.TWON_NONE">
+            <summary>
+            Nothing.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapType.TWON_ARRAY">
+            <summary>
+            A rectangular array of values that describe a logical item. It is similar to the TW_ONEVALUE because the current and default values are the same and 
+            there are no other values to select from. For example, a list of the names, such as the supported capabilities list returned by the CAP_SUPPORTEDCAPS 
+            capability, would use this type of container. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapType.TWON_ENUMERATION">
+            <summary>
+            This is the most general type because it defines a list of values from which the Current Value can be chosen. 
+            The values do not increase uniformly through a range and there is no constant step-size between 2 values. 
+            For example, if the step size of a Source's resolution is not the same, then the enumeration can be used (for example, 150, 400, and 600). 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapType.TWON_ONEVALUE">
+            <summary>
+            A single value whose current and default values are coincident. The range of available values for this type of capability is simply this single value.
+            For example, a capability that indicates the presence of a document feeder could be of this type.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapType.TWON_RANGE">
+            <summary>
+            Many capabilities allow users to select their current value from a range of regularly spaced values. 
+            The capability can specify the minimum and maximum acceptable values and the incremental step size between the values.
+            For example, resolution might be supported from 100 to 600 in steps of 50 (100, 150, 200, ..., 550, 600). 
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapability">
+            <summary>
+            Capabilities.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_NONE">
+            <summary>
+            Nothing.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_XFERCOUNT">
+            <summary>
+            The application is willing to accept this number of images.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_COMPRESSION">
+            <summary>
+            Allows the application and Source to identify which compression schemes they have in
+            common for Buffered Memory and File transfers.
+            Note for File transfers:
+            Since only certain file formats support compression, this capability must be negotiated after
+            setting the desired file format with ICAP_IMAGEFILEFORMAT.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PIXELTYPE">
+            <summary>
+            The type of pixel data that a Source is capable of acquiring (for example, black and white, gray, RGB, etc.).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_UNITS">
+            <summary>
+            Unless a quantity is dimensionless or uses a specified unit of measure, ICAP_UNITS determines
+            the unit of measure for all quantities.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_XFERMECH">
+            <summary>
+            Allows the application and Source to identify which transfer mechanisms the source supports.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_AUTHOR">
+            <summary>
+            The name or other identifying information about the Author of the image. It may include a copyright string.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_CAPTION">
+            <summary>
+            A general note about the acquired image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_FEEDERENABLED">
+            <summary>
+            If TRUE, Source must acquire data from the document feeder acquire area and other feeder 
+            capabilities can be used. If FALSE, Source must acquire data from the non-feeder acquire area 
+            and no other feeder capabilities can be used.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_FEEDERLOADED">
+            <summary>
+            Reflects whether there are documents loaded in the Source’s feeder.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_TIMEDATE">
+            <summary>
+            The date and time the image was acquired.
+            
+            Stored in the form “YYYY/MM/DD HH:mm:SS.sss” where YYYY is the year, MM is the 
+            numerical month, DD is the numerical day, HH is the hour, mm is the minute, SS is the second, 
+            and sss is the millisecond.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_SUPPORTEDCAPS">
+            <summary>
+            Returns a list of all the capabilities for which the Source will answer inquiries. Does not indicate
+            which capabilities the Source will allow to be set by the application. Some capabilities can only
+            be set if certain setup work has been done so the Source cannot globally answer which
+            capabilities are “set-able.”
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_EXTENDEDCAPS">
+            <summary>
+            Allows the application and Source to negotiate capabilities to be used in States 5 and 6.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_AUTOFEED">
+            <summary>
+            If TRUE, the Source will automatically feed the next page from the document feeder after the
+            number of frames negotiated for capture from each page are acquired. CAP_FEEDERENABLED
+            must be TRUE to use this capability.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_CLEARPAGE">
+            <summary>
+            If TRUE, the Source will eject the current page being acquired from and will leave the feeder
+            acquire area empty.
+            If CAP_AUTOFEED is TRUE, a fresh page will be advanced.
+            CAP_FEEDERENABLED must equal TRUE to use this capability.
+            This capability must have been negotiated as an extended capability to be used in States 5 and 6.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_FEEDPAGE">
+            <summary>
+            If TRUE, the Source will eject the current page and advance the next page in the document feeder
+            into the feeder acquire area.
+            If CAP_AUTOFEED is TRUE, the same action just described will occur and CAP_AUTOFEED will
+            remain active.
+            CAP_FEEDERENABLED must equal TRUE to use this capability.
+            This capability must have been negotiated as an extended capability to be used in States 5 and 6.
+            </summary>
+            20170104
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_REWINDPAGE">
+            <summary>
+            If TRUE, the Source will return the current page to the input side of the document feeder and
+            feed the last page from the output side of the feeder back into the acquisition area.
+            If CAP_AUTOFEED is TRUE, automatic feeding will continue after all negotiated frames from this
+            page are acquired.
+            CAP_FEEDERENABLED must equal TRUE to use this capability.
+            This capability must have been negotiated as an extended capability to be used in States 5 and 6.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_INDICATORS">
+            <summary>
+            If TRUE, the Source will display a progress indicator during acquisition and transfer, regardless
+            of whether the Source’s user interface is active. If FALSE, the progress indicator will be
+            suppressed if the Source’s user interface is inactive.
+            The Source will continue to display device-specific instructions and error messages even with
+            the Source user interface and progress indicators turned off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_SUPPORTEDCAPSEXT">
+            <summary>
+            Returns a list of all the capabilities for which the Source will answer inquiries. Does not indicate
+            which capabilities the Source will allow to be set by the application. Some capabilities can only
+            be set if certain setup work has been done so the Source cannot globally answer which
+            capabilities are “set-able.”
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PAPERDETECTABLE">
+            <summary>
+            This capability determines whether the device has a paper sensor that can detect documents on the ADF or Flatbed.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_UICONTROLLABLE">
+            <summary>
+            If TRUE, indicates that this Source supports acquisition with the UI disabled; i.e.,
+            TW_USERINTERFACE’s ShowUI field can be set to FALSE. If FALSE, indicates that this Source
+            can only support acquisition with the UI enabled.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_DEVICEONLINE">
+            <summary>
+            If TRUE, the physical hardware (e.g., scanner, digital camera, image database, etc.) that
+            represents the image source is attached, powered on, and communicating.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_AUTOSCAN">
+            <summary>
+            This capability is intended to boost the performance of a Source. The fundamental assumption
+            behind AutoScan is that the device is able to capture the number of images indicated by the
+            value of CAP_XFERCOUNT without waiting for the Application to request the image transfers.
+            This is only possible if the device has internal buffers capable of caching the images it captures.
+            The default behavior is undefined, because some high volume devices are incapable of anything
+            but CAP_AUTOSCAN being equal to TRUE. However, if a Source supports FALSE, it should use it
+            as the mandatory default, since this best describes the behavior of pre-1.8 TWAIN Applications.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_THUMBNAILSENABLED">
+            <summary>
+            Allows an application to request the delivery of thumbnail representations for the set of images
+            that are to be delivered.
+            Setting CAP_THUMBNAILSENABLED to TRUE turns on thumbnail mode. Images transferred
+            thereafter will be sent at thumbnail size (exact thumbnail size is determined by the Data Source).
+            Setting this capability to FALSE turns thumbnail mode off and returns full size images.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_DUPLEX">
+            <summary>
+            This indicates whether the scanner supports duplex. If so, it further indicates whether one-path
+            or two-path duplex is supported.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_DUPLEXENABLED">
+            <summary>
+            The user can set the duplex option to be TRUE or FALSE. If TRUE, the scanner scans both sides
+            of a paper; otherwise, the scanner will scan only one side of the image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_ENABLEDSUIONLY">
+            <summary>
+            Allows an application to query a source to see if it implements the new user interface settings dialog. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_ENDORSER">
+            <summary>
+            Allows the application to specify the starting endorser / imprinter number. All other endorser/
+            imprinter properties should be handled through the data source’s user interface.
+            The user can set the starting number for the endorser.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_ALARMS">
+            <summary>
+            Turns specific audible alarms on and off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_ALARMVOLUME">
+            <summary>
+            The volume of a device’s audible alarm. Note that this control affects the volume of all alarms;
+            no specific volume control for individual types of alarms is provided.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_AUTOMATICCAPTURE">
+            <summary>
+            The number of images to automatically capture. This does not refer to the number of images to
+            be sent to the Application, use CAP_XFERCOUNT for that.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_TIMEBEFOREFIRSTCAPTURE">
+            <summary>
+            For automatic capture, this value selects the number of milliseconds before the first picture is to
+            be taken, or the first image is to be scanned.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_TIMEBETWEENCAPTURES">
+            <summary>
+            For automatic capture, this value selects the milliseconds to wait between pictures taken, or images scanned.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_CLEARBUFFERS">
+            <summary>
+            CapGet() reports the presence of data in the scanner's buffers. CapSet() with a value of TWCB_CLEAR immediately clears the buffers.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_MAXBATCHBUFFERS">
+            <summary>
+            Describes the number of pages that the scanner can buffer when CAP_AUTOSCAN is enabled.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_DEVICETIMEDATE">
+            <summary>
+            The date and time of the device’s clock.
+            Managed in the form “YYYY/MM/DD HH:mm:SS:sss” where YYYY is the year, MM is the
+            numerical month, DD is the numerical day, HH is the hour, mm is the minute, SS is the second,
+            and sss is the millisecond.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_POWERSUPPLY">
+            <summary>
+            CapGet() reports the kinds of power available to the device. CapGetCurrent() reports the current power supply in use.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_CAMERAPREVIEWUI">
+            <summary>
+            This capability queries the Source for UI support for preview mode. If TRUE, the Source supports preview UI.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_SERIALNUMBER">
+            <summary>
+            A string containing the serial number of the currently selected device in the Source. Multiple
+            devices may all report the same serial number.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PRINTER">
+            <summary>
+            CapGet() returns the current list of available printer devices, along with the one currently being used for negotiation. 
+            CapSet() selects the current device for negotiation, and optionally constrains the list.
+            Top/Bottom refers to duplex devices, and indicates if the printer is writing on the top or the bottom of the sheet of paper. 
+            Simplex devices use the top settings. Before/After indicates whether printing occurs before or after the sheet of paper has been scanned.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PRINTERENABLED">
+            <summary>
+            Turns the current CAP_PRINTER device on or off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PRINTERINDEX">
+            <summary>
+            The User can set the starting number for the current CAP_PRINTER device.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PRINTERMODE">
+            <summary>
+            Specifies the appropriate current CAP_PRINTER device mode.
+            Note:
+            • TWPM_SINGLESTRING specifies that the printed text will consist of a single string.
+            • TWPM _MULTISTRING specifies that the printed text will consist of an enumerated list of
+            strings to be printed in order.
+            • TWPM _COMPOUNDSTRING specifies that the printed string will consist of a compound of a
+            String followed by a value followed by a suffix string.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PRINTERSTRING">
+            <summary>
+            Specifies the string(s) that are to be used in the string component when the current
+            CAP_PRINTER device is enabled.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_PRINTERSUFFIX">
+            <summary>
+            Specifies the string that shall be used as the current CAP_PRINTER device’s suffix.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_LANGUAGE">
+            <summary>
+            Allows Application and Source to identify which languages they have in common for the exchange of string data, 
+            and to select the language of the internal UI. Since the TWLG_xxxx codes include language and country data, there is no separate 
+            capability for selecting the country.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_FEEDERALIGNMENT">
+            <summary>
+            Helps the Application determine any special actions it may need to take when negotiating
+            frames with the Source. Allowed values are listed in <see cref="T:Dynamsoft.TWAIN.Enums.TWCapFeederAlignment"/>.
+            TWFA_NONE: The alignment is free-floating. Applications should assume
+            that the origin for frames is on the left.
+            TWFA_LEFT: The alignment is to the left.
+            TWFA_CENTER: The alignment is centered. This means that the paper will
+            be fed in the middle of the ICAP_PHYSICALWIDTH of the
+            device. If this is set, then the Application should calculate
+            any frames with a left offset of zero.
+            TWFA_RIGHT: The alignment is to the right.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_FEEDERORDER">
+            <summary>
+            TWFO_FIRSTPAGEFIRST if the feeder starts with the top of the first page.
+            TWFO_LASTPAGEFIRST is the feeder starts with the top of the last page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_REACQUIREALLOWED">
+            <summary>
+            Indicates whether the physical hardware (e.g. scanner, digital camera) is capable of acquiring
+            multiple images of the same page without changes to the physical registration of that page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_BATTERYMINUTES">
+            <summary>
+            The minutes of battery power remaining to the device.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.CAP_BATTERYPERCENTAGE">
+            <summary>
+            When used with CapGet(), return the percentage of battery power level on camera. If -1 is returned, it indicates that the battery is not present. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOBRIGHT">
+            <summary>
+            TRUE enables and FALSE disables the Source’s Auto-brightness function (if any).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BRIGHTNESS">
+            <summary>
+            The brightness values available within the Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_CONTRAST">
+            <summary>
+            The contrast values available within the Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_CUSTHALFTONE">
+            <summary>
+            Specifies the square-cell halftone (dithering) matrix the Source should use to halftone the image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_EXPOSURETIME">
+            <summary>
+            Specifies the exposure time used to capture the image, in seconds.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_FILTER">
+            <summary>
+            Describes the color characteristic of the subtractive filter applied to the image data. Multiple
+            filters may be applied to a single acquisition.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_FLASHUSED">
+            <summary>
+            Specifies whether or not the image was acquired using a flash.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_GAMMA">
+            <summary>
+            Gamma correction value for the image data.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_HALFTONES">
+            <summary>
+            A list of names of the halftone patterns available within the Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_HIGHLIGHT">
+            <summary>
+            Specifies which value in an image should be interpreted as the lightest “highlight.” All values
+            “lighter” than this value will be clipped to this value. Whether lighter values are smaller or
+            larger can be determined by examining the Current value of ICAP_PIXELFLAVOR.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_IMAGEFILEFORMAT">
+            <summary>
+            Informs the application which file formats the Source can generate (CapGet()). Tells the Source which file formats the application can handle (CapSet()).
+            TWFF_TIFF Used for document 
+            TWFF_PICT Native Macintosh 
+            TWFF_BMP Native Microsoft 
+            TWFF_XBM Used for document 
+            TWFF_JFIF Wrapper for JPEG 
+            TWFF_FPX FlashPix, used with digital 
+            TWFF_TIFFMULTI Multi-page TIFF files
+            TWFF_PNG An image format standard intended for use on the web, replaces GIF
+            TWFF_SPIFF A standard from JPEG, intended to replace JFIF, also supports JBIG
+            TWFF_EXIF File format for use with digital cameras. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_LAMPSTATE">
+            <summary>
+            TRUE means the lamp is currently, or should be set to ON. Sources may not support CapSet() operations. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_LIGHTSOURCE">
+            <summary>
+            Describes the general color characteristic of the light source used to acquire the image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_ORIENTATION">
+            <summary>
+            Defines which edge of the "paper" the image's "top" is aligned with. This information is used to adjust the frames to match the 
+            scanning orientation of the paper. For instance, if an ICAP_SUPPORTEDSIZE of TWSS_ISOA4 has been negotiated, 
+            and ICAP_ORIENTATION is set to TWOR_LANDSCAPE, then the Source must rotate the frame it downloads to the scanner to reflect the 
+            orientation of the paper. Please note that setting ICAP_ORIENTATION does not affect the values reported by ICAP_FRAMES; 
+            it just causes the Source to use them in a different way. The upper-left of the image is defined as the location where both the primary and 
+            secondary scans originate. (The X axis is the primary scan direction and the Y axis is the secondary scan direction.)
+            For a flatbed scanner, the light bar moves in the secondary scan direction. For a handheld scanner, the scanner is drug in the 
+            secondary scan direction. For a digital camera, the secondary direction is the vertical axis when the viewed image is considered upright. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PHYSICALWIDTH">
+            <summary>
+            The maximum physical width (X-axis) the Source can acquire (measured in units of ICAP_UNITS).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PHYSICALHEIGHT">
+            <summary>
+            The maximum physical height (Y-axis) the Source can acquire (measured in units of ICAP_UNITS).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_SHADOW">
+            <summary>
+            Specifies which value in an image should be interpreted as the darkest “shadow.” All values 
+            “darker” than this value will be clipped to this value.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_FRAMES">
+            <summary>
+            The list of frames the Source will acquire on each page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_XNATIVERESOLUTION">
+            <summary>
+            The native optical resolution along the X-axis of the device being controlled by the Source. Most
+            devices will respond with a single value (TW_ONEVALUE).
+            This is NOT a list of all resolutions that can be generated by the device. Rather, this is the
+            resolution of the device’s optics. Measured in units of pixels per unit as defined by
+            ICAP_UNITS (pixels per TWUN_PIXELS yields dimensionless data).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_YNATIVERESOLUTION">
+            <summary>
+            The native optical resolution along the Y-axis of the device being controlled by the Source.
+            Measured in units of pixels per unit as defined by ICAP_UNITS (pixels per TWUN_PIXELS
+            yields dimensionless data).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_XRESOLUTION">
+            <summary>
+            All the X-axis resolutions the Source can provide.
+            Measured in units of pixels per unit as defined by ICAP_UNITS (pixels per TWUN_PIXELS
+            yields dimensionless data). That is, when the units are TWUN_PIXELS, both
+            ICAP_XRESOLUTION and ICAP_YRESOLUTION shall report 1 pixel/pixel. Some data sources
+            like to report the actual number of pixels that the device reports, but that response is more
+            appropriate in ICAP_PHYSICALHEIGHT and ICAP_PHYSICALWIDTH.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_YRESOLUTION">
+            <summary>
+            All the Y-axis resolutions the Source can provide.
+            Measured in units of pixels per unit as defined by ICAP_UNITS (pixels per TWUN_PIXELS
+            yields dimensionless data). That is, when the units are TWUN_PIXELS, both
+            ICAP_XRESOLUTION and ICAP_YRESOLUTION shall report 1 pixel/pixel. Some data sources
+            like to report the actual number of pixels that the device reports, but that response is more
+            appropriate in ICAP_PHYSICALHEIGHT and ICAP_PHYSICALWIDTH.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_MAXFRAMES">
+            <summary>
+            The maximum number of frames the Source can provide or the application can accept per page. 
+            This is a bounding capability only. It does not establish current or future behavior.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_TILES">
+            <summary>
+            This is used with buffered memory transfers. If TRUE, Source can provide application with tiled image data.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BITORDER">
+            <summary>
+            Specifies how the bytes in an image are filled by the Source. TWBO_MSBFIRST indicates that the leftmost bit in the byte (usually bit 7) is 
+            the byte's Most Significant Bit.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_CCITTKFACTOR">
+            <summary>
+            Used for CCITT Group 3 2-dimensional compression. The ‘K’ factor indicates how often the
+            new compression baseline should be re-established. A value of 2 or 4 is common in facsimile
+            communication. A value of zero in this field will indicate an infinite K factor—the baseline is
+            only calculated at the beginning of the transfer.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_LIGHTPATH">
+            <summary>
+            Describes whether the image was captured transmissively or reflectively.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PIXELFLAVOR">
+            <summary>
+            Sense of the pixel whose numeric value is zero (minimum data value). 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PLANARCHUNKY">
+            <summary>
+            Allows the application and Source to identify which color data formats are available. There are
+            two options, “planar” and “chunky.”
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_ROTATION">
+            <summary>
+            How the Source can/should rotate the scanned image data prior to transfer. This doesn’t use
+            ICAP_UNITS. It is always measured in degrees. Any applied value is additive with any
+            rotation specified in ICAP_ORIENTATION.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_SUPPORTEDSIZES">
+            <summary>
+            For devices that support fixed frame sizes. 
+            Defined sizes match typical page sizes. This specifies the size(s) the Source can/should use to acquire image data. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_THRESHOLD">
+            <summary>
+            Specifies the dividing line between black and white. This is the value the Source will use to
+            threshold, if needed, when ICAP_PIXELTYPE = TWPT_BW.
+            The value is normalized so there are no units of measure associated with this ICAP.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_XSCALING">
+            <summary>
+            All the X-axis scaling values available. A value of ‘1.0’ is equivalent to 100% scaling. Do not use values less than or equal to zero.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_YSCALING">
+            <summary>
+            All the Y-axis scaling values available. A value of ‘1.0’ is equivalent to 100% scaling. Do not use values less than or equal to zero. 
+            There are no units inherent with this data as it is normalized to 1.0 being “unscaled.”
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BITORDERCODES">
+            <summary>
+            Used for CCITT data compression only. Indicates the bit order representation of the stored compressed codes.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PIXELFLAVORCODES">
+            <summary>
+            Used only for CCITT data compression. Specifies whether the compressed codes’ pixel “sense” 
+            will be inverted from the Current value of ICAP_PIXELFLAVOR prior to transfer.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_JPEGPIXELTYPE">
+            <summary>
+            Allows the application and Source to agree upon a common set of color descriptors that are 
+            made available by the Source. This ICAP is only useful for JPEG-compressed buffered memory image transfers.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_TIMEFILL">
+            <summary>
+            Used only with CCITT data compression. Specifies the minimum number of words of compressed codes (compressed data) to be transmitted per line.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BITDEPTH">
+            <summary>
+            Specifies the pixel bit depths for the Current value of ICAP_PIXELTYPE. For example, when
+            using ICAP_PIXELTYPE = TWPT_GRAY, this capability specifies whether this is 8-bit gray or 4-bit gray.
+            This depth applies to all the data channels (for instance, the R, G, and B channels will all have
+            this same bit depth for RGB data).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BITDEPTHREDUCTION">
+            <summary>
+            Specifies the Reduction Method the Source should use to reduce the bit depth of the data. Most
+            commonly used with ICAP_PIXELTYPE = TWPT_BW to reduce gray data to black and white.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_UNDEFINEDIMAGESIZE">
+            <summary>
+            If TRUE the Source will issue a MSG_XFERREADY before starting the scan.
+            Note: The Source may need to scan the image before initiating the transfer. This is the case if
+            the scanned image is rotated or merged with another scanned image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_EXTIMAGEINFO">
+            <summary>
+            Allows the application to query the data source to see if it supports extended image attribute capabilities, 
+            such as Barcode Recognition, Shaded Area Detection and Removal, Skew detection and Removal, and so on.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_MINIMUMHEIGHT">
+            <summary>
+            Allows the source to define the minimum height (Y-axis) that the source can acquire.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_MINIMUMWIDTH">
+            <summary>
+            Allows the source to define theminimum width (X-axis) that the source can acquire.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTODISCARDBLANKPAGES">
+            <summary>
+            Use this capability to have the Source discard blank images. The Application never sees these
+            images during the scanning session.
+            TWBP_DISABLE – this must be the default state for the Source. It indicates that all images will
+            be delivered to the Application, none of them will be discarded.
+            TWBP_AUTO – if this is used, then the Source will decide if an image is blank or not and discard
+            as appropriate.
+            If the specified value is a positive number in the range 0 to 231–1, then this capability will use it
+            as the byte size cutoff point to identify which images are to be discarded. If the size of the image
+            is less than or equal to this value, then it will be discarded. If the size of the image is greater
+            than this value, then it will be kept so that it can be transferred to the Application.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_FLIPROTATION">
+            <summary>
+            Flip rotation is used to properly orient images that flip orientation every other image.
+            TWFR_BOOK The images to be scanned are viewed in book form, flipping each page from left to right or right to left.
+            TWFR_FANFOLD The images to be scanned are viewed in fanfold paper style, flipping each page up or down. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BARCODEDETECTIONENABLED">
+            <summary>
+            Turns bar code detection on and off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_SUPPORTEDBARCODETYPES">
+            <summary>
+            Provides a list of bar code types that can be detected by the current Data Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BARCODEMAXSEARCHPRIORITIES">
+            <summary>
+            The maximum number of supported search priorities.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BARCODESEARCHPRIORITIES">
+            <summary>
+            A prioritized list of bar code types dictating the order in which bar codes will be sought.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BARCODESEARCHMODE">
+            <summary>
+            Restricts bar code searching to certain orientations, or prioritizes one orientation over the other.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BARCODEMAXRETRIES">
+            <summary>
+            Restricts the number of times a search will be retried if none are found on each page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_BARCODETIMEOUT">
+            <summary>
+            Restricts the total time spent on searching for a bar code on each page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_ZOOMFACTOR">
+            <summary>
+            When used with CapGet(), returns all camera supported lens zooming range. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PATCHCODEDETECTIONENABLED">
+            <summary>
+            Turns patch code detection on and off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_SUPPORTEDPATCHCODETYPES">
+            <summary>
+            A list of patch code types that may be detected by the current Data Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PATCHCODEMAXSEARCHPRIORITIES">
+            <summary>
+            The maximum number of supported search priorities.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PATCHCODESEARCHPRIORITIES">
+            <summary>
+            A prioritized list of patch code types dictating the order in which patch codes will be sought.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PATCHCODESEARCHMODE">
+            <summary>
+            Restricts patch code searching to certain orientations, or prioritizes one orientation over the other.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PATCHCODEMAXRETRIES">
+            <summary>
+            Restricts the number of times a search will be retried if none are found on each page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_PATCHCODETIMEOUT">
+            <summary>
+            Restricts the total time spent on searching for a patch code on each page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_FLASHUSED2">
+            <summary>
+            For devices that support flash. CapSet() selects the flash to be used (if any). CapGet() reports the current setting.
+            This capability replaces ICAP_FLASHUSED, which is only able to negotiate the flash being on or off. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_IMAGEFILTER">
+            <summary>
+            For devices that support image enhancement filtering. This capability selects the algorithm used to improve the quality of the image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_NOISEFILTER">
+            <summary>
+            For devices that support noise filtering. This capability selects the algorithm used to remove noise.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_OVERSCAN">
+            <summary>
+            Overscan is used to scan outside of the boundaries described by ICAP_FRAMES, and is used to help acquire image data that 
+            may be lost because of skewing.
+            This is primarily of use for transport scanners which rely on edge detection to begin scanning. 
+            If overscan is supported, then the device is capable of scanning in the inter-document gap to get the skewed image information. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICBORDERDETECTION">
+            <summary>
+            Turns automatic border detection on and off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICDESKEW">
+            <summary>
+            Turns automatic deskew correction on and off.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICROTATE">
+            <summary>
+            When TRUE this capability depends on intelligent features within the Source to automatically 
+            rotate the image to the correct position.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_JPEGQUALITY">
+            <summary>
+            Use this capability as a shortcut to select JPEG quantization tables that tradeoff quality versus 
+            compressed image size. Used in concert with DAT_JPEGCOMPRESSION it is possible for an Application 
+            to obtain the tables that are appropriate for varying percentages of quality within a given source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_FEEDERTYPE">
+            <summary>
+            Allows the Application to set scan parameters depending upon the type of feeder.
+            If the Source has a general type of the feeder only, default scan parameters can depend upon the type 
+            of scan (general document or photo). In this case, negotiating this capability will allow the Source 
+            adjusting the settings accordingly. It is advised, therefore, that this capabiliry be negotiated prior
+            to the capabilities related to specific Sourve settings (like ICAP_*RESOLUTION, ICAP_PIXELTYPE, etc.)
+            but after the other feeder-related capabilities (CAP_FEEDERENABLED, CAP_FEEDERLOADED).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_ICCPROFILE">
+            <summary>
+            Informs the application if the source has an ICC profile and can embed or link it in the current 
+            ICAP_IMAGEFILEFORMAT. Tells the source if the application would like an ICC profile embedded or linked
+            into the image file the source will write.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOSIZE">
+            <summary>
+            Forces the output image dimensions to match either the current value of ICAP_SUPPORTEDSIZES or any of its
+            current allowed values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICCROPUSESFRAME">
+            <summary>
+            Sets True is DAT_IMAGELAYOUT, ICAP_SUPPORTEDSIZE or ICAP_FRAMES reduces the amount of data captured from 
+            the device, potentially improving the performance of the driver, even if any automatic detection capability 
+            like ICAP_AUTOMATICBORFERDETECTION is set to TRUE.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICLENGTHDETECTION">
+            <summary>
+            Controls the automatic detection of the length of a document, this is intended for use with an Automatic
+            Document Feeder.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICCOLORENABLED">
+            <summary>
+            The source automatically detects the pixel type of the image and returns either a color image or a non-color 
+            image sprcified by ICAP_AUTOMATICCOLORNONCOLORPIXELTYPE.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_AUTOMATICCOLORNONCOLORPIXELTYPE">
+            <summary>
+            Specifies the non-color pixel type to use when automatic color is enabled.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_COLORMANAGEMENTENABLED">
+            <summary>
+            Disables the source's color and gamma tables for color and grayscale images, resulting in
+            output that could you be termed "raw".
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_IMAGEMERGE">
+            <summary>
+            Merges the front and rear image of a document in one of four orientations: from on the top, 
+            front on the bottom, from on the left or front on the right.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_IMAGEMERGEHEIGHTTHRESHOLD">
+            <summary>
+            Specifies a Y-Offset in ICAP_UNITS units. Front and rear images less than or equal to this 
+            value are merged according to the settings of ICAP_IMAGEMERGE. If either the front or the rear
+            image is greater than this value, they are not merged.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapability.ICAP_SUPPORTEDEXTIMAGEINFO">
+            <summary>
+            Allows the application to query the data source to see if it supports the operation triplet
+            DG_IMAGE / DAT_EXTMAGEINFO / MSG_GET. Support is only available if the capabiliry is supported
+            and the value TRUE is allowed
+            When set to TRUE, the source supports the DG_IMAGE / DAT_EXTIMAGEINFO / MSG_GET message. and data
+            will be returned by this call for any supported TWEI_ items.
+            When set to FALSE, the application is indicating that it will make no calls to DG_IMAGE / 
+            DAT_EXTIMAGEINFO / MSG_GET. FALSE is the default.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapLanguage">
+            <summary>
+            CAP_LANGUAGE values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes">
+            <summary>
+            TWAIN Supported sizes.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_NONE">
+            <summary>
+            0
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A4LETTER">
+            <summary>
+            1
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_B5LETTER">
+            <summary>
+            2
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_USLETTER">
+            <summary>
+            3
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_USLEGAL">
+            <summary>
+            4
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A5">
+            <summary>
+            5
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_B4">
+            <summary>
+            6
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_B6">
+            <summary>
+            7
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_USLEDGER">
+            <summary>
+            9
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_USEXECUTIVE">
+            <summary>
+            10
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A3">
+            <summary>
+            11
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_B3">
+            <summary>
+            12
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A6">
+            <summary>
+            13
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C4">
+            <summary>
+            14
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C5">
+            <summary>
+            15
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C6">
+            <summary>
+            16
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_4A0">
+            <summary>
+            17
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_2A0">
+            <summary>
+            18
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A0">
+            <summary>
+            19
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A1">
+            <summary>
+            20
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A2">
+            <summary>
+            21
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A4">
+            <summary>
+            1
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A7">
+            <summary>
+            22
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A8">
+            <summary>
+            23
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A9">
+            <summary>
+            24
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_A10">
+            <summary>
+            25
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB0">
+            <summary>
+            26
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB1">
+            <summary>
+            27
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB2">
+            <summary>
+            28
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB3">
+            <summary>
+            12
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB4">
+            <summary>
+            6
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB5">
+            <summary>
+            29
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB6">
+            <summary>
+            7
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB7">
+            <summary>
+            30
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB8">
+            <summary>
+            31
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB9">
+            <summary>
+            32
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_ISOB10">
+            <summary>
+            33
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB0">
+            <summary>
+            34
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB1">
+            <summary>
+            35
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB2">
+            <summary>
+            36
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB3">
+            <summary>
+            37
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB4">
+            <summary>
+            38
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB5">
+            <summary>
+            2
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB6">
+            <summary>
+            39
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB7">
+            <summary>
+            40
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB8">
+            <summary>
+            41
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB9">
+            <summary>
+            42
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_JISB10">
+            <summary>
+            43
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C0">
+            <summary>
+            44
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C1">
+            <summary>
+            45
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C2">
+            <summary>
+            46
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C3">
+            <summary>
+            47
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C7">
+            <summary>
+            48
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C8">
+            <summary>
+            49
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C9">
+            <summary>
+            50
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_C10">
+            <summary>
+            51
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_USSTATEMENT">
+            <summary>
+            52
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_BUSINESSCARD">
+            <summary>
+            53
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSupportedSizes.TWSS_MAXSIZE">
+            <summary>
+            54
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapDuplex">
+            <summary>
+            ICAP_DUPLEX values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapFeederAlignment">
+            <summary>
+            CAP_FEEDERALIGNMENT values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapFeederAlignment.TWFA_NONE">
+            <summary>
+            The alignment is free-floating. Applications should assume that the origin for frames is on the left.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapFeederAlignment.TWFA_LEFT">
+            <summary>
+            The alignment is to the left.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapFeederAlignment.TWFA_CENTER">
+            <summary>
+            The alignment is centered. This means that the paper will be fed in the middle of the ICAP_PHYSICALWIDTH of the 
+            device. If this is set, then the Application should calculate any frames with a left offset of zero.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapFeederAlignment.TWFA_RIGHT">
+            <summary>
+            The alignment is to the right.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapFeederOrder">
+            <summary>
+            CAP_FEEDERORDER values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapFeederOrder.TWFO_FIRSTPAGEFIRST">
+            <summary>
+            The feeder starts with the top of the first page.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapFeederOrder.TWFO_LASTPAGEFIRST">
+            <summary>
+            The feeder starts with the top of the last page.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapSetupXFer">
+            <summary>
+            ICAP_XFERMECH values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSetupXFer.TWSX_NATIVE">
+            <summary>
+            Native transfers require the data to be transferred to a single large block of RAM. Therefore,
+            they always face the risk of having an inadequate amount of RAM available to perform the transfer successfully.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSetupXFer.TWSX_FILE">
+            <summary>
+            Disk File Mode Transfers.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapSetupXFer.TWSX_MEMORY">
+            <summary>
+            Buffered Memory Mode Transfers.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapFileFormat">
+            <summary>
+            ICAP_IMAGEFILEFORMAT values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_TIFF">
+            <summary>
+            Used for document imaging.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_PICT">
+            <summary>
+            Native Macintosh format.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_BMP">
+            <summary>
+            Native Microsoft format.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_XBM">
+            <summary>
+            Used for document imaging.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_JFIF">
+            <summary>
+            Wrapper for JPEG images.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_FPX">
+            <summary>
+            FlashPix, used with digital cameras.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_TIFFMULTI">
+            <summary>
+            Multi-page TIFF files.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_PNG">
+            <summary>
+            An image format standard intended for use on the web, replaces GIF.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_SPIFF">
+            <summary>
+            A standard from JPEG, intended to replace JFIF, also supports JBIG.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_EXIF">
+            <summary>
+            File format for use with digital cameras.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_PDF">
+            <summary>
+            A file format from Adobe.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_JP2">
+            <summary>
+            A file format from the Joint Photographic Experts Group.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_DEJAVU">
+            <summary>
+            A file format from LizardTech.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFileFormat.TWFF_PDFA">
+            <summary>
+            A file format from Adobe.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapPrinter">
+            <summary>
+            CAP_PRINTER values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWCapPrinterMode">
+            <summary>
+            CAP_PRINTERMODE values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapPrinterMode.TWPM_SINGLESTRING">
+            <summary>
+            Specifies that the printed text will consist of a single string.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapPrinterMode.TWPM_MULTISTRING">
+            <summary>
+            Specifies that the printed text will consist of an enumerated list of strings to be printed in order.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWCapPrinterMode.TWPM_COMPOUNDSTRING">
+            <summary>
+            Specifies that the printed string will consist of a compound of a String followed by a value followed by a suffix string.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapBitdepthReduction">
+            <summary>
+            ICAP_BITDEPTHREDUCTION values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapBitOrder">
+            <summary>
+            ICAP_BITORDER values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapBitOrder.TWBO_MSBFIRST">
+            <summary>
+            Indicates that the leftmost bit in the byte (usually bit 7) is the byte’s Most Significant Bit.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapFilterType">
+            <summary>
+            ICAP_FILTER values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapFlash">
+            <summary>
+            ICAP_FLASHUSED2 values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapFlipRotation">
+            <summary>
+            ICAP_FLIPROTATION values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFlipRotation.TWFR_BOOK">
+            <summary>
+            The images to be scanned are viewed in book form, flipping each page from left to right or right to left.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapFlipRotation.TWFR_FANFOLD">
+            <summary>
+            The images to be scanned are viewed in fanfold paper style, flipping each page up or down.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapImageFilter">
+            <summary>
+            ICAP_IMAGEFILTER values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapImageFilter.TWIF_LOWPASS">
+            <summary>
+            Good for halftone images.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapImageFilter.TWIF_BANDPASS">
+            <summary>
+            Good for improving text.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapImageFilter.TWIF_HIGHPASS">
+            <summary>
+            Good for improving fine lines.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapLightPath">
+            <summary>
+            ICAP_LIGHTPATH values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapLightSource">
+            <summary>
+            ICAP_LIGHTSOURCE values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWEIMagType">
+            <summary>
+            TWEI_MAGTYPE values. (MD_ means Mag Type) Added 2.0 
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapNoiseFilter">
+            <summary>
+            ICAP_NOISEFILTER values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapORientation">
+            <summary>
+            ICAP_ORIENTATION values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapOverscan">
+            <summary>
+            ICAP_OVERSCAN values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapPixelFlavor">
+            <summary>
+            ICAP_PIXELFLAVOR values.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapPixelFlavor.TWPF_CHOCOLATE">
+            <summary>
+            Zero pixel represents darkest shade.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWICapPixelFlavor.TWPF_VANILLA">
+            <summary>
+            Zero pixel represents lightest shade.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapPixelType">
+            <summary>
+            ICAP_PIXELTYPE values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapPlanarChunky">
+            <summary>
+            ICAP_PLANARCHUNKY values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWICapUNits">
+            <summary>
+            ICAP_UNITS values.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWQC">
+            <summary>
+            For query the operation that are supported by the data source on a capability .
+            Application gets these through DG_CONTROL/DAT_CAPABILITY/MSG_QUERYSUPPORT
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWDataSourceStatus">
+            <summary>
+            Data source status.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWDataSourceStatus.TWDSS_CLOSED">
+            <summary>
+            Indicate the data source is closed. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWDataSourceStatus.TWDSS_OPENED">
+            <summary>
+            Indicate the data source is opened.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWDataSourceStatus.TWDSS_ENABLED">
+            <summary>
+            Indicate the data source is enabled. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWDataSourceStatus.TWDSS_ACQUIRING">
+            <summary>
+            Indicate the data source is acquiring image.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.TWEIBarcode">
+            <summary>
+            Barcode type
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODEX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODEY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODETEXT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODETYPE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODECOUNT">
+            <summary>
+            Returns the number of bar codes found on the document image. A 
+            value of 0 means the bar code engine was enabled but that no bar 
+            codes were found. A value of -1 means the bar code engine was not enabled.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODECONFIDENCE">
+            <summary>
+            This number reflects the degree of certainty the bar code engine has in 
+            the accuracy of the information obtained from the scanned image and 
+            ranges from 0 (no confidence) to 100 (supreme confidence). The Source may 
+            return a value of -1 if it does not support confidence reporting.
+            TWBCOR_ROT0 Normal reading orientation
+            TWBCOR_ROT90 Rotated 90 degrees clockwise
+            TWBCOR_ROT180 Rotated 180 degrees clockwise
+            TWBCOR_ROT270 Rotated 270 degrees clockwise
+            TWBCOR_ROTX The orientation is not known.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODEROTATION">
+            <summary>
+            The bar code’s orientation on the scanned image is described in 
+            reference to a Western-style interpretation of the image.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.TWEIBarcode.TWEI_BARCODETEXTLENGTH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Enums.ErrorCode">
+            <summary>
+            DynamicDotNetTWAIN error code.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.Succeed">
+            <summary>
+            Successful.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_SUCCESS">
+            <summary>
+            Successful.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_BUMMER">
+            <summary>
+            General error.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_LOWMEMORY">
+            <summary>
+            No enough memory to perform the required operation.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_NODS">
+            <summary>
+            Source Manager is unable to find the specified Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_MAXCONNECTIONS">
+            <summary>
+            Source is connected to maximum supported number of applications. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_OPERATIONERROR">
+            <summary>
+            Source or Source Manager reported an error to the user and handled the error. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_BADCAP">
+            <summary>
+            Capability is not supported by Source or the specified operation is not supported by the capability, or capability had dependencies on other capabilities and cannot be operated upon at this time. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_BADPROTOCOL">
+            <summary>
+            Unrecognized operation triplet. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_BADVALUE">
+            <summary>
+            Data parameter out of supported range. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_SEQERROR">
+            <summary>
+            Operation out of expected sequence.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_BADDEST">
+            <summary>
+            Unknown destination in DSM_Entry.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_CAPUNSUPPORTED">
+            <summary>
+            Capability is not supported by source. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_CAPBADOPERATION">
+            <summary>
+            Operation is not supported by the capability. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_CAPSEQERROR">
+            <summary>
+            Capability has dependencies on other capabilities and cannot be operated upon at this time. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_DENIED">
+            <summary>
+            File System operation is denied (file is protected).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_FILEEXISTS">
+            <summary>
+            Operation failed because file already exists. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_FILENOTFOUND">
+            <summary>
+            File not found. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_NOTEMPTY">
+            <summary>
+            Operation failed because directory is not empty. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_PAPERJAM">
+            <summary>
+            The feeder is jammed. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_PAPERDOUBLEFEED">
+            <summary>
+            The feeder detected multiple pages. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_FILEWRITEERROR">
+            <summary>
+            Error writing file. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWCC_CHECKDEVICEONLINE">
+            <summary>
+            The device went offline prior to or during this operation.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_GeneralError">
+             <summary>
+             General error.
+             </summary>
+            
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_SystemException">
+            <summary>
+            System exception.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_INVALID_LICENSE">
+            <summary>
+            Invalid license.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_OPENDSM">
+            <summary>
+            Can not open Source Manager. TWain_32.dll is missing or is in use by another application. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_SEQUENCE">
+            <summary>
+            Sequence error. The operation can not be performed upon the current Source Manager or Source state. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_CANCEL">
+            <summary>
+            User cancelled the operation.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_INDEX">
+            <summary>
+            Invalid index.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_VALUE">
+            <summary>
+            Invalid value.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_BADPARAMETER">
+            <summary>
+            Data parameter out of supported range. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_MAXIMAGESEXCEEDED">
+            <summary>
+            The number of images exceeds the max value.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_MOUSESHAPETRUE">
+            <summary>
+            MouseShape is true. Need to set MouseShape to false.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_EXTENSION">
+            <summary>
+            Unrecognized file extension.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_BMP">
+            <summary>
+            BMP format error or not supported.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_NOTSUPPORTIMAGE">
+            <summary>
+            Image format is not supported.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_INVALID_IMAGE">
+            <summary>
+            Invalid image index. Original image does't exist.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_UPLOADFAILEDFORTOOBIG">
+            <summary>
+            The file too big for upload.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_FTP_HANDSHAKEEXCEPTION">
+            <summary>
+            Handshake exception.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_FTP_INVALIDPROXYUSERNAMEORPASSWORD">
+            <summary>
+            Proxy username or password invalid.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_FTP_PROTOCOLREQUESTNOTPASS">
+            <summary>
+            Protocol request is not passed.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_FTP_NOTCONNECTREMOTESERVER">
+            <summary>
+            Can't connect to remote server.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_FTP_MALFORMEDPASVRESULT">
+            <summary>
+            Malformed PASV result:
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_FTP_MALFORMEDPASVRESULTNOTSUPPORTED">
+            <summary>
+            Malformed PASV result (not supported):
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_PDF_ERRORINREADPDF">
+            <summary>
+            Error in reading PDF file.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_PDF_ERRORINWRITEPDF">
+            <summary>
+            Error in writing PDF file.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_IMAGE_ERRORBIGIMAGE">
+            <summary>
+            The image too big for resample.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.WEBCAM_ERROR">
+            <summary>
+            The image too big for resample.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.OCR_ERROR">
+            <summary>
+            Failed to do OCR.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_DEVICE_NOT_SUPPORT">
+            <summary>
+            The current selected device type not supports the method or property.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.TWAIN.Enums.ErrorCode.TWERR_PRINT_NO_PAGE">
+            <summary>
+            There is no page to be printed.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainException">
+            <summary>
+            TWAIN exception class definition.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainException.#ctor">
+            <summary>
+            Initializes a new instance of the TwainException class.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the TwainException class with a specified error message.
+            </summary>
+            <param name="strError">The message that describes the error.</param>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.TwainException.#ctor(System.String,Dynamsoft.TWAIN.Enums.ErrorCode)">
+            <summary>
+            Initializes a new instance of the TwainException class with a specified error message and error code.
+            </summary>
+            <param name="strError">The message that describes the error.</param>
+            <param name="errCode">The error code.</param>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainException.Code">
+            <summary>
+            Get and set error code.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.TwainException.StackTrace">
+            <summary>
+            Gets a string representation of the frames on the call stack at the time the current exception was thrown.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Interface.IAcquireCallback">
+            <summary>
+            The callback function of the scan task.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnPreAllTransfers">
+            <summary>
+            TwainManager object call OnPreAllTransfers  before all image are scanned.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnPreTransfer">
+            <summary>
+            TwainManager object call OnPreTransfer before each image is scanned.
+            </summary>
+            <returns>If return true,the scan job continue,otherwise break.</returns>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnPostTransfer(System.Drawing.Bitmap)">
+            <summary>
+            TwainManager object call  OnPostTransfer after each image is scanned.
+            </summary>
+            <param name="bit"></param>
+            <returns>If return true,the scan job continue,otherwise break.</returns>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnPostAllTransfers">
+            <summary>
+            TwainManager object call  OnPostAllTransfer after all image are scanned.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnSourceUIClose">
+            <summary>
+            TwainManager object call  OnSourceUIClose  when the user clicks on the "Close" button of the Source's user interface.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnTransferCancelled">
+            <summary>
+            TwainManager object call  OnTransferCancelled when the transfer is cancelled by the user.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IAcquireCallback.OnTransferError">
+            <summary>
+             TwainManager object call OnTransferError when an error occurs during the process of transfer.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.TWAIN.Interface.IImageEvent.OnTransferError">
+            <summary>
+            This event is triggered when the transfer 
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.dnt_about">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.ds_logo4">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.DynamicNETTWAIN_logo">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.DynamsoftScanning">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.TWAINDSM">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.TWAIN.Properties.Resources.watermark_greyscale">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_IDENTITY">
+            <summary>
+            /* DAT_IDENTITY. Identifies the program/library/code resource. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_SETUPFILEXFER">
+            <summary>
+            /* DAT_SETUPFILEXFER. Sets up DS to application data transfer via a file. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_CAPABILITY">
+            <summary>
+            /* DAT_CAPABILITY. Used by application to get/set capability from/in a data source. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_ARRAY">
+            <summary>
+            /* TWON_ARRAY. Container for array of values (a simplified TW_ENUMERATION) */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_ENUMERATION">
+            <summary>
+            /* TWON_ENUMERATION. Container for a collection of values. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_STATUS">
+            <summary>
+            /* DAT_STATUS. Application gets detailed status info from a data source with this. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_USERINTERFACE">
+            <summary>
+            /* DAT_USERINTERFACE. Coordinates UI between application and data source. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_IMAGEINFO">
+            <summary>
+            /* DAT_IMAGEINFO. Application gets detailed image info from DS with this. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_PENDINGXFERS">
+            <summary>
+            /* DAT_PENDINGXFERS. Used with MSG_ENDXFER to indicate additional data. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_RANGE">
+            <summary>
+            /* TWON_RANGE. Container for a range of values. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_IMAGEMEMXFER">
+            <summary>
+            /* DAT_IMAGEMEMXFER. Used to pass image data (e.g. in strips) from DS to application.*/
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_SETUPMEMXFER">
+            <summary>
+            /* DAT_SETUPMEMXFER. Sets up DS to application data transfer via a memory buffer. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_PALETTE8">
+            <summary>
+            /* DAT_PALETTE8. Color palette when TWPT_PALETTE pixels xfer'd in mem buf. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_VERSION">
+            <summary>
+            /* No DAT needed.  Describes version of software currently running. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_HANDLE">
+            <summary>
+            Memory handle define
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_FIX32">
+            <summary>
+            /* Fixed point structure type. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_EVENT">
+            <summary>
+            /* DAT_EVENT. For passing events down from the application to the DS. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_FRAME">
+            <summary>
+            /* No DAT.  Defines a frame rectangle in ICAP_UNITS coordinates. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_ONEVALUE">
+            <summary>
+            /* TWON_ONEVALUE. Container for one value. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_MEMORY">
+            <summary>
+            /* No DAT needed.  Used to manage memory buffers. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.TWAIN.TwainDefine.TW_ELEMENT8">
+            <summary>
+            /* No DAT needed. */
+            </summary>
+        </member>
+    </members>
+</doc>

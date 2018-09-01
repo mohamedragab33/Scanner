@@ -1,0 +1,2932 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dynamsoft.ImageCore</name>
+    </assembly>
+    <members>
+        <member name="T:Dynamsoft.Core.Annotation.AnnotationData">
+            <summary>
+            Defines the dynamsoft annotation class.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.AnnotationType">
+            <summary>
+            Returns or sets the annotation type. To use the property, the property MouseShape should be set to false.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            <div class="tablediv">
+            <table>
+            <tr valign="center">
+            <th>Allowed Values</th>
+            <th>Annotation Types</th>
+            </tr>
+            <tr valign="center">
+            <td>enumNone(default)</td>
+            <td>Select an area.</td>
+            </tr>
+            <tr valign="center">
+            <td>enumPointer(Pointer)</td>
+            <td>Select an existing annotation. Press "Ctrl" to multi-select annotations.</td>
+            </tr>
+            <tr valign="center">
+            <td>enumText(Text)</td>
+            <td>Create a text.The annotation type will be set back to 1 once the annotation is completed.</td>
+            </tr>
+            <tr valign="center">
+            <td>enumLine(Line)</td>
+            <td>Create a line.The annotation type will be set back to 1 once the annotation is completed.</td>
+            </tr>
+            <tr valign="center">
+            <td>enumRectangle(Rectangle)</td>
+            <td>Create a rectangle.The annotation type will be set back to 1 once the annotation is completed.</td>
+            </tr>
+            <tr valign="center">
+            <td>enumEllipse(Ellipse)</td>
+            <td>Create a ellipse.The annotation type will be set back to 1 once the annotation is completed.</td>
+            </tr>
+            </table>
+            </div>
+            <br/>
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.Name">
+            <summary>
+            Returns or sets the name of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.UserName">
+            <summary>
+            Returns or sets the user name of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.Description">
+            <summary>
+            Returns or sets the description of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.CreationTime">
+            <summary>
+            Returns or sets the time when the annotation is created.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.ModifiedTime">
+            <summary>
+            Returns or sets the time when the annotation is last modified.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.FillColor">
+            <summary>
+            Returns or sets the fill color and transparency for the area inside the annotation rectangle/ellipse. This property is only valid when the annotation type is NOT 2(Text).
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            By default, the color is white and not transparent.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.PenColor">
+            <summary>
+            Returns or sets the color of the pen for drawing the annotation rectangle/ellipse/line. This property is only valid when the annotation type is NOT 2(Text).
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            By default, the color is black.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.PenWidth">
+            <summary>
+            Returns or sets the width of the pen for drawing the annotation rectangle/ellipse/line. This property is only valid when the annotation type is NOT 2(Text).
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            By default, the color is width is 1.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.GUID">
+            <summary>
+            Returns or sets the GUID of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.Location">
+            <summary>
+            Returns the left-top coordinate of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.Size">
+            <summary>
+            Returns the size of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.FontType">
+            <summary>
+            Returns or sets the font type of the annotation text.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.TextContent">
+            <summary>
+            Returns or sets the content of the annotation text.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.TextRotateType">
+            <summary>
+            Returns or sets the rotate angle of the annotation text.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>        '
+            <div class="tablediv">
+            <table>
+            <tr valign="center">
+            <th>Allowed Values</th>
+            <th>TextRotate Types</th>
+            </tr>
+            <tr valign="center">
+            <td>0</td>
+            <td>Rotate0</td>
+            </tr>
+            <tr valign="center">
+            <td>1</td>
+            <td>Rotate90</td>
+            </tr>
+            <tr valign="center">
+            <td>2</td>
+            <td>Rotate180</td>
+            </tr>
+            <tr valign="center">
+            <td>3</td>
+            <td>Rotate270</td>
+            </tr>
+            </table>
+            </div>
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.Selected">
+            <summary>
+            Returns or sets if the annotation is selected.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.StartPoint">
+            <summary>
+            Returns or sets the left-top coordinate of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnotationData.EndPoint">
+            <summary>
+            Returns or sets the right-bottom coordinate of the annotation.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="T:Dynamsoft.Core.Business.ImageBuffer">
+             <summary>
+            Defines a class with the features for the image operation in buffer.
+             </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.GetImageIndexByGuid(System.Guid)">
+            <summary>
+            Gets the image index by its guid.
+            </summary>
+            <param name="guid">the GUID of the image.</param>
+            <returns> 
+            Returns an index(short). -1 indicates there is no such GUID.
+            </returns>
+            
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.GetImageGuidByIndex(System.Int16)">
+            <summary>
+            Gets the image GUID by its index.
+            </summary>
+            <param name="idx">the index of the image in buffer.</param>
+            <returns> 
+            Returns a GUID. Empty indicates there is no such index.
+            </returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.RemoveAllImages">
+            <summary>
+            Returns all images in buffer.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.MoveImage(System.Int16,System.Int16)">
+            <summary>
+            Moves a specified image.
+            </summary>
+            <param name="sSourceImageIndex">Specifies the index of image in buffer. The index is 0-based. </param>
+            <param name="sTargetImageIndex">Specifies the index of image in buffer. The index is 0-based. </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.RemoveImages(System.Collections.Generic.List{System.Int16})">
+            <summary>
+            Deletes the images of specified indices in the array.
+            </summary> 
+            <param name="listImageIndex">Specifies the indices of image in buffer. The index is 0-based.
+            ShortArray: an array with objects of short type. Its length is variable.
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            If aryIndex contains any invalid index, an error message will be written into the ErrorString property and no image will be saved. But if aryIndex contains repeated valid indexes, 
+            the repeated index will be filtered, only one index will be kept.
+            After the selected image is deleted, the following images' indexes will change accordingly.
+            If the original CurrentImageIndexInBuffer &gt;= HowManyImagesInBuffer, CurrentImageIndexInBuffer = HowManyImagesInBuffer;
+            Also the image will be selected.
+            If the original CurrentImageIndexInBuffer is less than HowManyImagesInBuffer, CurrentImageIndexInBuffer will not change
+            and the image with the index of CurrentImageIndexInBuffer will be selected.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.RemoveImage(System.Int16)">
+            <summary>
+            Removes the image of a specified index in buffer.
+            </summary> 
+            <param name="sImageIndexToBeDeleted">Specifies the index of image to be deleted in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            If the CurrentImageIndexInBuffer is equal to MaxImagesInBuffer -1, the image with the index of CurrentImageIndexInBuffer will be removed,
+            and the CurrentImageIndexInBuffer will be MaxImagesInBuffer -2; No image will be highlighted in the control.
+            If the CurrentImageIndexInBuffer is 0, the first image will be removed; and CurrentImageIndexInBuffer will still be 0.
+            The indices of images will be changed accordingly. The image with index 0 will be selected.(This is also the case when the 
+            index is set to another value except MaxImagesInBuffer -1)
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.SwitchImage(System.Int16,System.Int16)">
+            <summary>
+            Switches two images of specified indices in buffer.
+            </summary>
+            <param name="sImageIndex1">Specifies the index of image in buffer. The index is 0-based. </param>
+            <param name="sImageIndex2">Specifies the index of image in buffer. The index is 0-based. </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.GetBitmap(System.Int16)">
+            <summary>
+            Gets the bitmap of a specified index in buffer.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based. </param>
+            <returns>True indicates success. False indicates failure.</returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.SetBitmap(System.Int16,System.Drawing.Bitmap)">
+            <summary>
+            Replaces the bitmap of a specified index in buffer.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based. </param>
+            <param name="hBitmap">The bitmap of the target image that will replace the original one.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.SetBitmapAndMetaData(System.Int16,System.Drawing.Bitmap,System.Object)">
+            <summary>
+            Take care of AnnotationObject.
+            </summary>
+            <param name="sImageIndex"></param>
+            <param name="hBitmap"></param>
+            <param name="annoObject"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.GetMetaData(System.Int16,Dynamsoft.Core.Enums.EnumMetaDataType)">
+            <summary>
+            Gets the metadata of an image of a specified index.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based. </param>
+            <param name="enumMetaDataType">The meta data type of an image </param>
+            <returns>The data type of the return value is object.</returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageBuffer.SetMetaData(System.Int16,Dynamsoft.Core.Enums.EnumMetaDataType,System.Object,System.Boolean)">
+            <summary>
+            Sets the metadata of an image of a specified index.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based. </param>
+            <param name="enumMetaType">The meta data type of an image. </param>
+            <param name="annoObject">The value of meta data. </param> 
+            <param name="bIfTriggerEvent">Specifies if OnUpdated event is triggered. </param> 
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="E:Dynamsoft.Core.Business.ImageBuffer.OnAdded">
+            <summary>
+            This event is triggered after the images are loaded into buffer.
+            </summary>
+        </member>
+        <member name="E:Dynamsoft.Core.Business.ImageBuffer.OnUpdated">
+            <summary>
+            This event is triggered after the images are updated.
+            </summary>
+        </member>
+        <member name="E:Dynamsoft.Core.Business.ImageBuffer.OnRemoved">
+            <summary>
+            This event is triggered after the image is removed.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageBuffer.IfAppendImage">
+            <summary>
+            Returns or sets whether insert or append the newly scanned/loaded images.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            If the value of the property is set to true, the newly scanned/loaded image
+            will be appended to the last image in buffer. If it is set to false, 
+            the image will be inserted before the current image.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageBuffer.CurrentImageIndexInBuffer">
+            <summary>
+            Returns the index of the current image selected in buffer or 
+            sets the image with the specified index as the current image.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The index is 0 based. Current image is alwarys selected.
+            By changing CurrentImageIndexInBuffer, you can enumerate all the images in buffer. 
+            When CurrentImageIndexInBuffer is changed, the control will be redrawn to reflect the change.
+            When an image is added to buffer, the CurrentImageIndexInBuffer is skipped to the next one and the new image is added there.
+            When image buffer is full, that is HowManyImagesInBuffer = MaxImagesInBuffer, the new acquired or loaded image will replace the existing one, positioned by CurrentImageIndexInBuffer. 
+            For example, if HowManyImagesInBuffer = 4 and MaxImagesInBuffer = 4, CurrentImageIndexInBuffer = 3, after a new image is acquired, the CurrentImageIndexInBuffer is set to 0, 
+            and the 1st image is replaced by the new acquired one . If another image is acquired again, the CurrentImageIndexInBuffer is set to 1 and the 2nd image is replaced by the newly acquired one.
+            If an image is selected, the value of CurrentImageIndexInBuffer will be the index of the selected image.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageBuffer.MaxImagesInBuffer">
+            <summary>
+            Returns or sets the maximum number of images can be held in buffer.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The default value of this property is 32767.
+            When image buffer is full, that is HowManyImagesInBuffer equals MaxImagesInBuffer, the newly acquired or loaded image will replace the existing ones from the first one on. 
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageBuffer.HowManyImagesInBuffer">
+            <summary>
+            Returns how many images are currently loaded in buffer. This is a runtime, read-only property.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="T:Dynamsoft.Core.Business.ImageOperator">
+            <summary>
+            Summary description for ImageOperator.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Business.ImageProcesser">
+            <summary>
+            Defines a class provides functions for processing images in buffer.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.RotateLeft(System.Int16)">
+            <summary>
+            Rotates the image of a specified index in buffer by 90 degrees clockwise to the left.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.  </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>RotateLeft() rotates an image and replaces the original image with the rotated copy.</remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.RotateRight(System.Int16)">
+            <summary>
+            Rotates the image of a specified index in buffer by 90 degrees clockwise to the right.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.  </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>RotateRight() rotates an image and replaces the original image with the rotated copy.</remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.Rotate(System.Int16,System.Double,System.Boolean,Dynamsoft.Core.Enums.EnumInterpolationMethod)">
+            <summary>
+            Rotates the image of a specified index in buffer by specified angle.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.  </param>
+            <param name="dbAngle">Specifies the rotation angle.</param>
+            <param name="bKeepSize">Specifies if keep the size or not.</param>
+            <param name="EnumInterpolationMethod">
+            Specifies the method to do interpolation.
+            DWTInterpolationMethod Allowed Values
+            <div class="tablediv">
+            <table>
+            <tr valign="center">
+            <th>Interpolation</th>
+            <th>Method</th>
+            </tr>
+            <tr valign="center">
+            <td>1</td>
+            <td>NearestNeighbor </td>
+            </tr>
+            <tr valign="center">
+            <td>2</td>
+            <td>Bilinear </td>
+            </tr>
+            <tr valign="center">
+            <td>3</td>
+            <td>Bicubic </td>
+            </tr>
+            </table>
+            </div>
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            Please specify the fill color by BackgroundFillColor property.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.ChangeImageSize(System.Int16,System.Int32,System.Int32,Dynamsoft.Core.Enums.EnumInterpolationMethod)">
+            <summary>
+            Changes the display size of the image of a specified index in buffer.
+            </summary>
+            <param name="sImageIndex">
+            Specifies the index of image in buffer. The index is 0-based.
+            </param>
+            <param name="newx">
+            Specifies the pixel width of the new image.
+            </param>
+            <param name="newy">
+            Specifies the pixel height of the new image.
+            </param>
+            <param name="enumInterpolationMethod">
+            Specifies the method to do interpolation.
+            DWTInterpolationMethod Allowed Values
+            <div class="tablediv">
+            <table>
+            <tr valign="center">
+            <th>Interpolation</th>
+            <th>Method</th>
+            </tr>
+            <tr valign="center">
+            <td>1</td>
+            <td>NearestNeighbor </td>
+            </tr>
+            <tr valign="center">
+            <td>2</td>
+            <td>Bilinear </td>
+            </tr>
+            <tr valign="center">
+            <td>3</td>
+            <td>Bicubic </td>
+            </tr>
+            </table>
+            </div>
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ChangeImageSize() changes the display size of an image and replaces the original image with new one.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.Crop(System.Int16,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Crops the image of a specified index in buffer.
+            </summary>
+            <param name="sImageIndex">
+            Specifies the index of image in buffer. The index is 0-based.
+            </param>
+            <param name="iLeft">
+            Specifies the x-coordinate of the upper-left corner of the rectangle.
+            </param>
+            <param name="iTop">
+            Specifies the y-coordinate of the upper-left corner of the rectangle.
+            </param>
+            <param name="iRight">
+            Specifies the x-coordinate of the lower-right corner of the rectangle.
+            </param>
+            <param name="iBottom">
+            Specifies the y-coordinate of the lower-right corner of the rectangle.
+            </param>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.Flip(System.Int16)">
+            <summary>
+            Flips the image of a specified index in buffer.
+            </summary>
+            <param name="iImageIndex">
+            Specifies the index of image in buffer. The index is 0-based.
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            Flip() flips an image and replaces the original image with the flipped copy.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.Mirror(System.Int16)">
+            <summary>
+            Mirrors the image of a specified index in buffer.
+            </summary>
+            <param name="sIndex">Specifies the index of image in buffer. The index is 0-based.  </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            Mirror() mirrors an image and replaces the original image with the mirrored copy.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.Erase(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Clears the specified area of a specified image, and fill the area with the fill color.
+            </summary>
+            <param name="iIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <param name="iLeft">Specifies the x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="iTop">Specifies the y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="iRight">Specifies the x-coordinate of the lower-right corner of the rectangle.</param>
+            <param name="iBottom">Specifies the y-coordinate of the lower-right corner of the rectangle.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The fill color can be defined by BackgroundFillColor. The valid area is the intersection of 
+            specified area(defined by the input parameters) and the whole image.If the intersection is 
+            invalid, an error will be throwed out.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.Invert(System.Int32)">
+            <summary>
+            Inverts the color of a specific image.
+            </summary>
+            <param name="iIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.GrayScale(System.Int32)">
+            <summary>
+            Converts a specific image to a grayscale image.
+            </summary>
+            <param name="iIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.IsBlankImage(System.Int32)">
+            <summary>
+            Detects whether an image is blank.
+            </summary>
+            <param name="iImageIndex">specifies the index of image in buffer. The index is 0-based.  </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            IsBlankImage() detects whether an image is blank.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.IsBlankImage(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Detects whether a certain area on an image is blank.
+            </summary>
+            <param name="iImageIndex">specifies the index of image in the buffer. The index is 0-based.</param>
+            <param name="iLeft">specifies the x-coordinate of the upper-left corner of the rectangle for detecting.</param>
+            <param name="iTop">specifies the y-coordinate of the upper-left corner of the rectangle for detecting.</param>
+            <param name="iRight">specifies the x-coordinate of the lower-right corner of the rectangle for detecting.</param>
+            <param name="iBottom">specifies the y-coordinate of the lower-right corner of the rectangle for detecting.</param>
+            <param name="bFuzzMatch">specifies whether use fuzzy matching when detecting.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>If you would like to check whether an image is blank, you can use the IsBlankImage method</remarks> 
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.GetSkewAngle(System.Int32)">
+            <summary>
+            Calculates the skew angle of the image of a specified index in buffer.
+            </summary>
+            <param name="iIndex">Specifies the index of image in buffer. The index is 0-based.  </param>
+            <returns>The skew angle of the image.</returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.GetSkewAngle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Calculates the skew angle of the image of a specified index in buffer.
+            </summary>
+            <param name="iIndex">Specifies the index of image in buffer. The index is 0-based.  </param>
+            <param name="iLeft">
+            Specifies the x-coordinate of the upper-left corner of the rectangle.
+            </param>
+            <param name="iTop">
+            Specifies the y-coordinate of the upper-left corner of the rectangle.
+            </param>
+            <param name="iRight">
+            Specifies the x-coordinate of the lower-right corner of the rectangle.
+            </param>
+            <param name="iBottom">
+            Specifies the y-coordinate of the lower-right corner of the rectangle.
+            </param>
+            <returns>The skew angle of the image.</returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.CropToClipborad(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Copies the image of a specified index in buffer to clipboard in DIB format.
+            </summary>
+            <param name="iImageIndex">
+            Specifies the index of image in buffer. The index is 0-based.
+            </param>
+            <param name="iLeft">
+            Specifies the x-coordinate of the upper-left corner of the rectangle.
+            </param>
+            <param name="iTop">
+            Specifies the y-coordinate of the upper-left corner of the rectangle.
+            </param>
+            <param name="iRight">
+            Specifies the x-coordinate of the lower-right corner of the rectangle.
+            </param>
+            <param name="iBottom">
+            Specifies the y-coordinate of the lower-right corner of the rectangle.
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            CopyToClipboard() makes a copy of the image to the clipboard. 
+            If the application does not need the image in buffer any more, please use CutToClipboard(), 
+            which can save memory, especially when the image is large.
+            The copied image is in DIB format.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.ImageProcesser.CutFrameToClipborad(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Cuts the image data in the specified area to the system clipboard in DIB format.
+            </summary>
+            <param name="iImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <param name="iLeft">Specifies the x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="iTop">Specifies the y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="iRight">Specifies the x-coordinate of the lower-right corner of the rectangle.</param>
+            <param name="iBottom">Specifies the y-coordinate of the lower-right corner of the rectangle.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The fill color can be assigned by calling BackgroundFillColor.This method cuts the image data of the selected
+            area into the clipboard. The valid area is the intersection of specified area(defined by the input parameters) 
+            and the whole image.If the intersection is invalid, an error will be thrown out.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageProcesser.BlankImageThreshold">
+            <summary>
+            Returns or sets the dividing line between black and white. The default value is 128.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The allowed values are from 0 to 255. The default value is 128.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageProcesser.BlankImageMaxStdDev">
+            <summary>
+            Returns or sets the standard deviation of the pixels in the image.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The allowed values are from 0 to 100. 0 means it is a single-color image. The default value is 1.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.ImageProcesser.BackgroundFillColor">
+            <summary>
+            Returns or sets the fill color of the selected area of an image when it is cut, erased, or rotated. It is a value specifying the 32-bit ARGB value.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The default value is Black. The byte-ordering of the 32-bit ARGB value is AARRGGBB. The most significant byte (MSB), 
+            represented by AA, is the alpha component value. The second, third, and fourth bytes, represented by RR, GG, and BB,
+            are the color components red, green, and blue respectively.
+            </remarks>
+        </member>
+        <member name="T:Dynamsoft.Core.Business.IO">
+            <summary>
+            Defines a class provides functions for loading images in buffer. 
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.LoadDibFromClipboard">
+            <summary>
+            Loads a DIB format image from system clipboard into buffer.
+            </summary>
+            
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            
+            
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.LoadImage(System.Drawing.Image)">
+            <summary>
+            Loads an image into buffer. It supports loading encrypted pdf files.
+            </summary>
+            <param name="image"> The image to be loaded.</param>
+             <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+             When an error occurs, please check ImageCoreException.
+             </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.LoadImage(System.String)">
+            <summary>
+            Loads an image into the buffer. It supports loading encrypted pdf files.
+            </summary>
+            <param name="strFileName">The name of the image to be loaded.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the FileName. 
+            ImageCore supports the following types of image files: 
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.LoadImageFromBytes(System.Byte[],Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Loads image from a byte array with the specified file format.
+            </summary>
+            <param name="byBuffer">A byte array of the image data.</param>
+            <param name="enumImageFileFormat">EnumImageFileFormat type, specifies the file format.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.SaveImageToBytes(System.Int16,Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Saves the image of a specified index in buffer to a byte array in the specified file format.
+            </summary>
+            <param name="sImageIndex">Specifies the index of the image in buffer. The index is 0-based.</param>
+            <param name="enumImageFileFormat">EnumImageFileFormat type, specifies the file format</param>
+            <returns>
+            A byte array where the image will be saved.
+            </returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.LoadImage(System.String,Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Loads an Image into the Dynamic.NET TWAIN.
+            </summary>
+            <param name="strFileName">The name of the file to be loaded. It should be the path on the local disk.</param>
+            <param name="enumImageFileFormat">EnumImageFileFormat type, specifies the file format</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the FileName. 
+            ImageCore supports the following types of image files: 
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.SaveAsBMP(System.String,System.Int16)">
+            <summary>
+            Saves the image of a specified index in buffer as a BMP file.
+            </summary>
+            <param name="strFileName">The name of the BMP file to be saved. It should be the path on the local disk.</param>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.SaveAsPNG(System.String,System.Int16)">
+            <summary>
+            Saves the image of a specified index in buffer as a PNG file.
+            </summary>
+            <param name="strFileName">The name of the PNG file to be saved. It should be the path on the local disk.</param>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.SaveAsJPEG(System.String,System.Int16)">
+            <summary>
+            Saves the image of a specified index in buffer as a JPEG file.
+            </summary>
+            <param name="strFileName">The name of the JPEG file to be saved. It should be the path on the local disk.</param>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.SaveAsTIFF(System.String,System.Collections.Generic.List{System.Int16})">
+            <summary>
+            Saves the image of a specified index in buffer as a TIFF file.
+            </summary>
+            <param name="strFileName">The name of the TIFF file to be saved. It should be the path on the local disk.</param>
+            <param name="sImageIndexList">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.SaveAsTIFF(System.Collections.Generic.List{System.Int16})">
+            <summary>
+            Saves the images of the specified indices in buffer to a MultiPage TIFF byte array.
+            </summary>
+            <param name="sImageIndexList">Specifies the index of image in buffer. The index is 0-based.</param>
+            <returns>
+            A byte array where the image will be saved.
+            </returns>        
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.AppendToTIFF(System.String,System.Collections.Generic.List{System.Int16})">
+            <summary>
+            Appends the images of specified indexes in buffer to the end of an existing tiff.
+            </summary>
+            <param name="strFileName">The name of the TIFF file to be appended. It should be the path on the local disk.</param>
+            <param name="sImageIndex">Specifies a list of indexes of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.CopyToClipborad(System.Int16)">
+            <summary>
+            Copies the image of a specified index in buffer to clipboard in DIB format.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            CopyToClipboard() makes a copy of the image to the clipboard. 
+            If there is no need to leave the image in buffer anymore, please use CutToClipboard() instead.
+            Thus, it will cost less memory especially when the image is large.
+            The copied image is in DIB format.
+            </remarks>       
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.CopyFrameToClipboard(System.Int16,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Copies the image data in the specified area to the system clipboard in DIB format.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <param name="iLeft">Specifies the x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="iTop">Specifies the y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="iRight">Specifies the x-coordinate of the lower-right corner of the rectangle.</param>
+            <param name="iBottom">Specifies the y-coordinate of the lower-right corner of the rectangle.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception> 
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.GetImageSizeWithSpecifiedType(System.Int16,Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Calculates the file size in the specified format of the image specified by index.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <param name="enumImageType">
+            Specifies the type of an image file.
+            EnumImageFileFormat
+            <div class="tablediv">
+            <table>
+            <tr valign="center">
+            <th>Allowed Values</th>
+            <th>Image Type</th>
+            </tr>
+            <tr valign="center">
+            <td>0</td>
+            <td>BMP, DIB </td>
+            </tr>
+            <tr valign="center">
+            <td>1</td>
+            <td>JPG, JPEG, JPE, JFIF </td>
+            </tr>
+            <tr valign="center">
+            <td>2</td>
+            <td> TIF, TIFF </td>
+            </tr>
+            <tr valign="center">
+            <td>3</td>
+            <td>PNG </td>
+            </tr>
+            </table>
+            </div>
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>       
+        </member>
+        <member name="M:Dynamsoft.Core.Business.IO.GetImageSize(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Calculates the file size of the new image resized from the image of a specified index in buffer.
+            </summary>
+            <param name="sImageIndex">Specifies the index of image in buffer. The index is 0-based.</param>
+            <param name="iWidth">specifies the pixel width of the new image. </param>
+            <param name="iHeight">specifies the pixel height of the new image. </param>
+            <returns>
+            -1 indicates failure. Other values indicate success.
+            </returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="E:Dynamsoft.Core.Business.IO.OnPostLoad">
+            <summary>
+            This event is triggered after images are loaded into the control from a local directory or memory.
+            </summary>
+        </member>
+        <member name="E:Dynamsoft.Core.Business.IO.OnPrePageLoad">
+            <summary>
+            This event is triggered before each page of an image is loaded into the control from a local directory or memory.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.IO.JPEGQuality">
+            <summary>
+            Returns or sets the quality of the JPEG file.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception> 
+            <remarks>
+            The default value of JPEGQuality property is 80.
+            The valid range is 0-100. The higher the JPEGQuality property, 
+            the better the JPEG quality and the greater the size of the file.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.IO.TiffCompressionType">
+            <summary>
+            Returns or sets the compression type of TIFF files. 
+            To use EnumTiffCompressionType.TIFF_JPEG, you will need DynamicImage dll. Please put DynamicImage.dll/DynamicImagex64.dll in the fully qualified path of the current working directory. 
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception> 
+            <remarks>
+            The default value of JPEGQuality property is 80.
+            The valid range is 0-100. The higher the JPEGQuality property, the better the JPEG quality and the greater the size of the file.
+            </remarks>        
+        </member>
+        <member name="T:Dynamsoft.Core.Business.Net">
+            <summary>
+            Defines a class with the features for the images uploading and downloading.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.FTPDownload(System.String,System.String)">
+            <summary>
+            Downloads an image from the FTP server.
+            </summary>
+            <param name="strFTPServer">
+            The name of the FTP server.
+            </param>
+            <param name="strFTPRemoteFile">
+            The name of the file to be downloaded.
+            It should be the relative path of the file on the FTP server.
+            </param>
+            <returns> 
+            The downloaded file in Byte.
+            </returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.FTPUpload(System.String,System.String,System.Byte[])">
+            <summary>
+            Uploads an image to the FTP server.
+            </summary>
+            <param name="strFTPServer">
+            The name of the FTP server.
+            </param>
+            <param name="strFTPRemoteFile">
+            The name of the file to be uploaded.
+            It should be the relative path of the file on the FTP server.
+            </param>
+            <param name="imageBytes">
+            The image to be uploaded to the server in byte.
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.FTPUpLoad(System.String,System.String,System.Collections.Generic.List{System.Int16},Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Uploads an image to the FTP server.
+            </summary>
+            <param name="strFTPServer">
+            The name of the FTP server.
+            </param>
+            <param name="strFTPRemoteFile">
+            The name of the file to be uploaded.
+            It should be the relative path of the file on the FTP server.
+            </param>
+            <param name="listImageIndex">
+            The list of indexes of images to be uploaded to the server in byte. The index is 0-based.
+            </param>
+            <param name="enumImageFileFormat">
+            The format of the images to be saved on the FTP server.
+            </param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the value of the enumImageFileFormat.
+            FTPRemoteFile parameter should include the FTP directory of the file.
+            Write permission of the specified directory is needed for uploading.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.ClearAllHTTPFormField">
+            <summary>
+            Clears all the web forms which are used for image uploading.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.SetHTTPFormField(System.String,System.String)">
+            <summary>
+            Sets a text parameter of a web form. The text parameter is passed while uploading images.
+            </summary>
+            <param name="strFieldName">Sspecifies the name of a text field in web form.</param>
+            <param name="strFieldValue">Specifies the value of a text field in web form.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.HTTPDownload(System.String,System.String)">
+            <summary>
+            Downloads an image from the HTTP server.
+            </summary>
+            <param name="strHTTPServer">The name of the HTTP server.It should be only the name of the HTTP server, without "http://" or "https://".Port number is not needed here.</param>
+            <param name="strHTTPRemoteFile">The name of the image to be downloaded. It should be the relative path of the file on the HTTP server.</param>
+            <returns>
+            The downloaded image in bytes.
+            </returns>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the HTTPRemoteFile.
+            ImageCore supports the following types of image files: 
+            HTTPRemoteFile parameter should include the HTTP directory of the file.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.HTTPUploadThroughPut(System.String,System.String,System.Byte[])">
+            <summary>
+            Uploads an image to the HTTP server through HTTP PUT method.
+            </summary>
+            <param name="strHTTPServer">The name of the HTTP server.It should be only the name of the HTTP server, without "http://" or "https://".Port number is not needed here.</param>
+            <param name="strHTTPRemoteFile">The name of the image to be created on the HTTP server. It should be the relative path of the file on the HTTP server. </param>
+            <param name="imageBytes">The image to be uploaded in bytes</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the HTTPRemoteFile.
+            ImageCore supports the following types of image files: 
+            HTTPRemoteFile parameter should include the HTTP directory of the file.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.HTTPUploadThroughPut(System.String,System.String,System.Collections.Generic.List{System.Int16},Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Uploads the image of a specified index in buffer to the HTTP server as a specified image format through HTTP PUT method.
+            </summary>
+            <param name="strHTTPServer">The name of the HTTP server.It should be only the name of the HTTP server, without "http://" or "https://".Port number is not needed here.</param>
+            <param name="strHTTPRemoteFile">The name of the image to be created on the HTTP server. It should be the relative path of the file on the HTTP server. </param>
+            <param name="listImageIndex">Specifies a list of the indexes of image in buffer. The index is 0-based.</param>
+            <param name="enumImageFileFormat">The image format of the file to be created on the HTTP server.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the ImageFileFormat.
+            HTTPRemoteFile parameter should include the HTTP directory of the file.
+            Write permission of the specified directory is needed for uploading.   
+            If there's a file with the same name on the server, the newly uploaded file will replace the old one.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.HTTPUploadThroughPost(System.String,System.String,System.String,System.Byte[])">
+            <summary>
+            Uploads an image to the HTTP server through HTTP POST method.
+            </summary>
+            <param name="strHTTPServer">The name of the HTTP server.It should be only the name of the HTTP server, without "http://" or "https://".Port number is not needed here.</param>
+            <param name="strActionPage">The specified page for posting image files. This is the relative path of the page, not the absolute path. For example: "upload.asp", not "http://www.webserver.com/upload.asp".</param>
+            <param name="strHTTPRemoteFile">The name of the image to be created on the HTTP server. It should be the relative path of the file on the HTTP server. </param>
+            <param name="imageBytes">The image to be uploaded in bytes</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the HTTPRemoteFile.
+            IMPORTANT: ImageCore uses a special way to see if an image is uploaded and processed successfully by server. If the server returns 0 bytes, it indicates success. Otherwise, it means the upload failed.
+            In other words, when the uploaded image is processed successfully, the action page on the server should not return anything, even the "HTML". 
+            ImageCore supports the following types of image files: 
+            HTTPRemoteFile parameter should include the HTTP directory of the file.
+            </remarks>
+        </member>
+        <member name="M:Dynamsoft.Core.Business.Net.HTTPUploadThroughPost(System.String,System.String,System.String,System.Collections.Generic.List{System.Int16},Dynamsoft.Core.Enums.EnumImageFileFormat)">
+            <summary>
+            Uploads the images of specified indexes in buffer to the HTTP server through HTTP POST method.
+            </summary>
+            <param name="strHTTPServer">The name of the HTTP server.It should be only the name of the HTTP server, without "http://" or "https://".Port number is not needed here.</param>
+            <param name="strActionPage">The specified page for posting image files. This is the relative path of the page, not the absolute path. For example: "upload.asp", not "http://www.webserver.com/upload.asp".</param>
+            <param name="listImageIndex">Specifies a list of the indexes of image in buffer. The index is 0-based.</param>
+            <param name="enumImageFileFormat">The image format of the file to be created on the HTTP server.</param>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            ImageCore processes the image format according to the extension of the HTTPRemoteFile.
+            IMPORTANT: ImageCore uses a special way to see if an image is uploaded and processed successfully by server. If the server returns 0 bytes, it indicates success. Otherwise, it means the upload failed.
+            In other words, when the uploaded image is processed successfully, the action page on the server should not return anything, even the "HTML". 
+            HTTPRemoteFile parameter should include the HTTP directory of the file.
+            </remarks>
+        </member>
+        <member name="E:Dynamsoft.Core.Business.Net.OnInternetTransferPercentage">
+            <summary>
+            This event is triggered during image uploading or downloading images via HTTP or FTP.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.IfSSL">
+             <summary>
+             Returns or sets if an SSL connection should be used when uploading or downloading images via HTTP.
+             </summary>
+             <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+             When an error occurs, please check ImageCoreException.
+             </exception>
+             <remarks>
+            The default value is false.
+             </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.MaxUploadImageSize">
+            <summary>
+            Returns or sets the maximum size of all the images can be uploaded.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The default value of this property is -1. 
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.ProxyServerName">
+            <summary>
+            Returns or sets the name of the proxy server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            Only the name of the proxy serevr is needed. For instance, 192.168.1.100.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.ProxyServerPort">
+            <summary>
+            Returns or sets the port number of the proxy server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.ProxyUserName">
+            <summary>
+            Returns or sets the user name used to log into the proxy server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.ProxyPassword">
+            <summary>
+            Returns or sets the password used to log into the proxy server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.FTPPassword">
+            <summary>
+            Returns or sets the password used to log into the FTP server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            If an "anonymous" user wants to log into a FTP server, 
+            please use the default value of FTPUserName property and FTPPassword property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.FTPPort">
+            <summary>
+            Returns or sets the port number of the FTP server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The default FTP port number is 21.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.FTPUserName">
+            <summary>
+            Returns or sets the user name used to log into the FTP server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            If an "anonymous" user wants to log into a FTP server, 
+            please use the default value of FTPUserName property and FTPPassword property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.IfFTPPassiveMode">
+            <summary>
+            Returns or sets whether FTP passive mode is enabled. 
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The Default value is true. If it is true, FTP passive mode is enabled.
+            If it is false, FTP passive mode is not enabled.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.HTTPFieldNameofUploadedImage">
+            <summary>
+            Specifies the field name of the uploaded image through POST.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The default value is "RemoteFile". It is used in HTTPUploadThroughPost.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.HTTPPassword">
+            <summary>
+            Sets or returns the password used to log into the HTTP server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.HTTPPort">
+            <summary>
+            Returns or sets the port number of the HTTP server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            The default HTTP port number is 80. This property is used with IfSSL property.
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.HTTPPostResponseString">
+            <summary>
+            Returns the response string from the HTTP server if an error occurs for HTTPUploadThroughPost() method. This is a runtime, read-only property.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+            <remarks>
+            If HTTPUploadThroughPost() method returns false, please check this property for the response string from the HTTP server. If HTTPUploadThroughPost() method return true, this property will return "".
+            </remarks>
+        </member>
+        <member name="P:Dynamsoft.Core.Business.Net.HTTPUserName">
+            <summary>
+            Returns or sets the user name used to log into the HTTP server.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="T:Dynamsoft.Core.Annotation.AnnoTextFont">
+            <summary>
+            Defines a class getting or setting the properties of text annotation font. 
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnoTextFont.Name">
+            <summary>
+            Returns or sets the name of the text font.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnoTextFont.Size">
+            <summary>
+            Returns or sets the size of the text.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnoTextFont.Style">
+            <summary>
+            Returns or sets the style of the text.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Annotation.AnnoTextFont.TextColor">
+            <summary>
+            Returns or sets the color of the text.
+            </summary>
+            <exception cref="!:Dynamsoft.ImageCore.ImageCoreException">
+            When an error occurs, please check ImageCoreException.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Common.CImage.Dispose">
+            <summary>
+            Dispose the object.
+            </summary>
+            
+            <remarks><para>Frees unmanaged resources used by the object. The object becomes unusable
+            after that.</para>
+            
+            <par><note>The method needs to be called only in the case if unmanaged image was allocated
+            using <see cref="!:Create"/> method. In the case if the class instance was created using constructor,
+            this method does not free unmanaged memory.</note></par>
+            </remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Common.CImage.Dispose(System.Boolean)">
+            <summary>
+            Dispose the object.
+            </summary>
+            
+            <param name="disposing">Indicates if disposing was initiated manually.</param>
+            
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dynamsoft.Common.CImage.KernelGeneralizedCubic(System.Single,System.Single)" -->
+        <member name="M:Dynamsoft.Common.CImage.KernelCubic(System.Single)">
+            **
+        </member>
+        <member name="T:Dynamsoft.Common.ConstStringHelper">
+            <summary>
+            Summary description for ConstStringHelper.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Common.IndexList">
+            <summary>
+            Implements the IIndexList interface using an array whose size is dynamically increased as required.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Interface.IIndexList">
+            <summary>
+            Represents a non-generic collection of objects that can be individually accessed by index.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Interface.IIndexList.Insert(System.Int32,System.Int32)">
+            <summary>
+            Inserts an element into the list at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted.</param>
+            <param name="value">The value to be inserted.</param>
+            <returns>
+            true indicates success. false indicates failure. 
+            </returns>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Interface.IIndexList.Add(System.Int32)">
+            <summary>
+            Adds an int value to the end of the list.
+            </summary>
+            <param name="value">
+            The value to be added to the end of the list. 
+            </param>
+            <returns>
+            The list index at which the value has been added. -1 indicates failure.
+            </returns>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Interface.IIndexList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the element at the specified index of the list.
+            </summary>
+            <param name="index">The zero-based index of the element to be removed.</param>
+            <returns>
+            true indicates success. false indicates failure. 
+            </returns>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Interface.IIndexList.Remove(System.Int32)">
+            <summary>
+            Removes the first occurrence of a specific value from the list.
+            </summary>
+            <param name="value">The value to be removed from the list.</param>
+            <returns>
+            true indicates success. false indicates failure. 
+            </returns>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <member name="M:Dynamsoft.Core.Interface.IIndexList.GetEnumerator">
+            <summary>
+            Returns an enumerator for the entire list.
+            </summary>
+            <returns>
+            An IEnumerator for the entire list.
+            </returns>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Interface.IIndexList.Count">
+            <summary>
+            Gets the number of elements actually contained in the list.
+            </summary>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <member name="P:Dynamsoft.Core.Interface.IIndexList.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <exception cref="T:Dynamsoft.Core.ImageCoreException"> 
+            When an error occurs and IfThrowException property is true, an exception will be thrown.
+            When IfThrowException property is false, please check ErrorCode and ErrorString.
+            </exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Dynamsoft.Common.SImageInfo.last_c_index" -->
+        <member name="T:Dynamsoft.Common.StringArray">
+            <summary>
+            Summary description for StringArray.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Common.Util">
+            <summary>
+            Summary description for Util.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Common.Util.Clone(System.Drawing.Bitmap)">
+            <summary>
+            Clone image.
+            </summary>
+            
+            <param name="source">Source image.</param>
+            
+            <returns>Return clone of the source image.</returns>
+            
+            <remarks>The original <see cref="M:System.Drawing.Bitmap.Clone(System.Drawing.Rectangle,System.Drawing.Imaging.PixelFormat)">Bitmap.Clone()</see>
+            does not produce the desired result - it does not create an actual clone (it does not create a copy
+            of the image). That is why this method was implemented to provide the functionality.</remarks> 
+            
+        </member>
+        <member name="M:Dynamsoft.Common.Util.Clone(System.Drawing.Imaging.BitmapData)">
+             <summary>
+             Clone image.
+             </summary>
+             
+             <param name="sourceData">Source image data.</param>
+            
+             <returns>Clones image from source image data. The message does not clone pallete in the
+             case if the source image has indexed pixel format.</returns>
+             
+        </member>
+        <member name="M:Dynamsoft.Common.Util.Clone(System.Drawing.Bitmap,System.Drawing.Imaging.PixelFormat)">
+             <summary>
+             Clone image.
+             </summary>
+             
+             <param name="source">Source image.</param>
+             <param name="format">Pixel format of result image.</param>
+             
+             <returns>Returns clone of the source image with specified pixel format.</returns>
+            
+             <remarks>The original <see cref="M:System.Drawing.Bitmap.Clone(System.Drawing.Rectangle,System.Drawing.Imaging.PixelFormat)">Bitmap.Clone()</see>
+             does not produce the desired result - it does not create a clone with specified pixel format.
+             More of it, the original method does not create an actual clone - it does not create a copy
+             of the image. That is why this method was implemented to provide the functionality.</remarks> 
+            
+        </member>
+        <member name="M:Dynamsoft.Common.Util.CopyUnmanagedMemory(System.IntPtr,System.IntPtr,System.Int32)">
+             <summary>
+             Copy block of unmanaged memory.
+             </summary>
+             
+             <param name="dst">Destination pointer.</param>
+             <param name="src">Source pointer.</param>
+             <param name="count">Memory block's length to copy.</param>
+             
+             <returns>Return's value of <paramref name="dst"/> - pointer to destination.</returns>
+             
+             <remarks><para>This function is required because of the fact that .NET does
+             not provide any way to copy unmanaged blocks, but provides only methods to
+             copy from unmanaged memory to managed memory and vise versa.</para></remarks>
+            
+        </member>
+        <member name="T:Dynamsoft.Core.ImageCore">
+            <summary>
+            A class that provides functionality to get images to buffer, process images and output images.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageCore.Dispose">
+            <summary>
+            Cleans up any resources being used.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCore.ImageBuffer">
+            <summary>
+            Defines a class providing functions for managing images in buffer.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCore.ImageProcesser">
+            <summary>
+            A class providing functions for processing images in buffer.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCore.IO">
+            <summary>
+            A class providing functions for loading images into buffer.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCore.Net">
+            <summary>
+            A class with the features for the images uploading and downloading.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.EnumTiffCompressionType">
+            <summary>
+            TIFF file compression type.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_AUTO">
+            <summary>
+            Auto mode.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_NONE">
+            <summary>
+            Dump mode.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_RLE">
+            <summary>
+            CCITT modified Huffman RLE.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_FAX3">
+            <summary>
+            CCITT Group 3 fax encoding.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_T4">
+            <summary>
+            CCITT T.4 (TIFF 6 name).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_FAX4">
+            <summary>
+            CCITT Group 4 fax encoding.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_T6">
+            <summary>
+            CCITT T.6 (TIFF 6 name).
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_LZW">
+            <summary>
+            Lempel Ziv and Welch.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumTiffCompressionType.TIFF_JPEG">
+            <summary>
+            Jpeg
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.EnumInterpolationMethod">
+            <summary>
+            The method to do interpolation.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.EnumImageFileFormat">
+            <summary>
+            Image type
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumImageFileFormat.WEBTW_BMP">
+            <summary>
+            Native Microsoft format.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumImageFileFormat.WEBTW_JPG">
+            <summary>
+            JPEG format.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumImageFileFormat.WEBTW_TIF">
+            <summary>
+            Tagged Image File Format.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumImageFileFormat.WEBTW_PNG">
+            <summary>
+            An image format standard intended for use on the web, replaces GIF.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumImageFileFormat.WEBTW_GIF">
+            <summary>
+            Graphics Interchange Format.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumImageFileFormat.WEBTW_UNSUPPORT">
+            <summary>
+            A format that is not supported.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.AnnotationType">
+            <summary>
+            The types of annotation.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.AnnotationType.enumNone">
+            <summary>
+            Select an area.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.AnnotationType.enumPointer">
+            <summary>
+            Select an existing annotation. Press "Ctrl" to multi-select annotations.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.AnnotationType.enumText">
+            <summary>
+            Create a text.The annotation type will be set back to 1 once the annotation is completed.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.AnnotationType.enumLine">
+            <summary>
+            Create a line.The annotation type will be set back to 1 once the annotation is completed.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.AnnotationType.enumRectangle">
+            <summary>
+            Create a rectangle.The annotation type will be set back to 1 once the annotation is completed.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.AnnotationType.enumEllipse">
+            <summary>
+            Create a ellipse.The annotation type will be set back to 1 once the annotation is completed.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.TextRotateType">
+            <summary>
+            Rotate text annotaion
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.TextRotateType.Rotate0">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.TextRotateType.Rotate90">
+            <summary>
+            Text rotate 90 degrees.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.TextRotateType.Rotate180">
+            <summary>
+            Text roate 180 degrees.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.TextRotateType.Rotate270">
+            <summary>
+            Text rotate 270 degrees
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.EnumMetaDataType">
+            <summary>
+            The types of meta data.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.EnumMetaDataType.enumAnnotation">
+            <summary>
+            Annotation matedata.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Enums.ErrorCode">
+            <summary>
+            DynamicDotNetTWAIN error code.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.Succeed">
+            <summary>
+            Successful.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_SUCCESS">
+            <summary>
+            Successful.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_BUMMER">
+            <summary>
+            General error.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_LOWMEMORY">
+            <summary>
+            No enough memory to perform the required operation.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_NODS">
+            <summary>
+            Source Manager is unable to find the specified Source.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_MAXCONNECTIONS">
+            <summary>
+            Source is connected to maximum supported number of applications. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_OPERATIONERROR">
+            <summary>
+            Source or Source Manager reported an error to the user and handled the error. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_BADCAP">
+            <summary>
+            Capability is not supported by Source or the specified operation is not supported by the capability, or capability had dependencies on other capabilities and cannot be operated upon at this time. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_BADPROTOCOL">
+            <summary>
+            Unrecognized operation triplet. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_BADVALUE">
+            <summary>
+            Data parameter out of supported range. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_SEQERROR">
+            <summary>
+            Operation out of expected sequence.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_BADDEST">
+            <summary>
+            Unknown destination in DSM_Entry.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_CAPUNSUPPORTED">
+            <summary>
+            Capability is not supported by source. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_CAPBADOPERATION">
+            <summary>
+            Operation is not supported by the capability. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWCC_CAPSEQERROR">
+            <summary>
+            Capability has dependencies on other capabilities and cannot be operated upon at this time. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_GeneralError">
+             <summary>
+             General error.
+             </summary>
+            
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_CANCEL">
+            <summary>
+            User cancelled the operation.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_INDEX">
+            <summary>
+            Invalid index.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_VALUE">
+            <summary>
+            Invalid value.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_BADPARAMETER">
+            <summary>
+            Data parameter out of supported range. 
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_BMP">
+            <summary>
+            BMP format error or not supported.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_NOTSUPPORTIMAGE">
+            <summary>
+            Image format is not supported.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_INVALID_IMAGE">
+            <summary>
+            Invalid image index. Original image does't exist.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_UPLOADFAILEDFORTOOBIG">
+            <summary>
+            The file too big for upload.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_FTP_HANDSHAKEEXCEPTION">
+            <summary>
+            Handshake exception.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_FTP_INVALIDPROXYUSERNAMEORPASSWORD">
+            <summary>
+            Proxy username or password invalid.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_FTP_PROTOCOLREQUESTNOTPASS">
+            <summary>
+            Protocol request is not passed.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_FTP_NOTCONNECTREMOTESERVER">
+            <summary>
+            Can't connect to remote server.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_FTP_MALFORMEDPASVRESULT">
+            <summary>
+            Malformed PASV result:
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_FTP_MALFORMEDPASVRESULTNOTSUPPORTED">
+            <summary>
+            Malformed PASV result (not supported):
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.Enums.ErrorCode.TWERR_IMAGE_ERRORBIGIMAGE">
+            <summary>
+            The image too big for resample.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.ImageCoreException">
+            <summary>
+            DynamicDotNetTWAIN exception class definition.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageCoreException.#ctor">
+            <summary>
+            Initializes a new instance of the ImageCoreException class.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageCoreException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ImageCoreException class with a specified error message.
+            </summary>
+            <param name="strError">The message that describes the error.</param>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageCoreException.#ctor(System.String,Dynamsoft.Core.Enums.ErrorCode)">
+            <summary>
+            Initializes a new instance of the ImageCoreException class with a specified error message and error code.
+            </summary>
+            <param name="strError">The message that describes the error.</param>
+            <param name="errCode">The error code.</param>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCoreException.Code">
+            <summary>
+            Get and set ImageCore error code.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCoreException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageCoreException.StackTrace">
+            <summary>
+            Gets a string representation of the frames on the call stack at the time the current exception was thrown.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.BaseRotateFilter">
+            <summary>
+            Base class for image rotation filters.
+            </summary>
+            
+            <remarks>The abstract class is the base class for all filters,
+            which implement rotating algorithms.</remarks>
+            
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.BaseTransformationFilter">
+            <summary>
+            Base class for filters, which may produce new image of different size as a
+            result of image processing.
+            </summary>
+            
+            <remarks><para>The abstract class is the base class for all filters, which
+            do image processing creating new image of the size, which may differ from the
+            size of source image. Filters based on this class cannot be applied directly
+            to the source image, which is kept unchanged.</para>
+            
+            <para>The base class itself does not define supported pixel formats of source
+            image and resulting pixel formats of destination image. Filters inheriting from
+            this base class, should specify supported pixel formats and their transformations
+            overriding abstract <see cref="P:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.FormatTransalations"/> property.</para>
+            </remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.Apply(System.Drawing.Bitmap)">
+             <summary>
+             Apply filter to an image.
+             </summary>
+             
+             <param name="image">Source image to apply filter to.</param>
+             
+             <returns>Returns filter's result obtained by applying the filter to
+             the source image.</returns>
+             
+             <remarks>The method keeps the source image unchanged and returns the
+             the result of image processing filter as new image.</remarks>
+             
+             <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format of the source image.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.Apply(System.Drawing.Imaging.BitmapData)">
+             <summary>
+             Apply filter to an image.
+             </summary>
+             
+             <param name="imageData">Source image to apply filter to.</param>
+             
+             <returns>Returns filter's result obtained by applying the filter to
+             the source image.</returns>
+             
+             <remarks>The filter accepts bitmap data as input and returns the result
+             of image processing filter as new image. The source image data are kept
+             unchanged.</remarks>
+            
+             <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format of the source image.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.Apply(Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+             <summary>
+             Apply filter to an image in unmanaged memory.
+             </summary>
+             
+             <param name="image">Source image in unmanaged memory to apply filter to.</param>
+             
+             <returns>Returns filter's result obtained by applying the filter to
+             the source image.</returns>
+             
+             <remarks>The method keeps the source image unchanged and returns the
+             the result of image processing filter as new image.</remarks>
+             
+             <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format of the source image.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.Apply(Dynamsoft.Core.ImageFilter.UnmanagedImage,Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+             <summary>
+             Apply filter to an image in unmanaged memory.
+             </summary>
+             
+             <param name="sourceImage">Source image in unmanaged memory to apply filter to.</param>
+             <param name="destinationImage">Destination image in unmanaged memory to put result into.</param>
+             
+             <remarks><para>The method keeps the source image unchanged and puts result of image processing
+             into destination image.</para>
+             
+             <para><note>The destination image must have the same width and height as source image. Also
+             destination image must have pixel format, which is expected by particular filter (see
+             <see cref="P:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.FormatTransalations"/> property for information about pixel format conversions).</note></para>
+             </remarks>
+             
+             <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format of the source image.</exception>
+             <exception cref="!:InvalidImagePropertiesException">Incorrect destination pixel format.</exception>
+             <exception cref="!:InvalidImagePropertiesException">Destination image has wrong width and/or height.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.CalculateNewImageSize(Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+            <summary>
+            Calculates new image size.
+            </summary>
+            
+            <param name="sourceData">Source image data.</param>
+            
+            <returns>New image size - size of the destination image.</returns>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.ProcessFilter(Dynamsoft.Core.ImageFilter.UnmanagedImage,Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+            <summary>
+            Process the filter on the specified image.
+            </summary>
+            
+            <param name="sourceData">Source image data.</param>
+            <param name="destinationData">Destination image data.</param>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.BaseTransformationFilter.FormatTransalations">
+             <summary>
+             Format translations dictionary.
+             </summary>
+             
+             <remarks><para>The dictionary defines, which pixel formats are supported for
+             source images and which pixel format will be used for resulting image.
+             </para>
+             
+             <para>See <see cref="!:IFilterInformation.FormatTransalations"/> for more information.</para>
+             </remarks>
+            
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.BaseRotateFilter.angle">
+            <summary>
+            Rotation angle.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.BaseRotateFilter.keepSize">
+            <summary>
+            Keep image size or not.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.BaseRotateFilter.fillColor">
+            <summary>
+            Fill color.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseRotateFilter.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.BaseRotateFilter"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            
+            <remarks><para>This constructor sets <see cref="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.KeepSize"/> property to <b>false</b>.
+            </para></remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseRotateFilter.#ctor(System.Double,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.BaseRotateFilter"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            <param name="keepSize">Keep image size or not.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.BaseRotateFilter.CalculateNewImageSize(Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+            <summary>
+            Calculates new image size.
+            </summary>
+            
+            <param name="sourceData">Source image data.</param>
+            
+            <returns>New image size - size of the destination image.</returns>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.Angle">
+            <summary>
+            Rotation angle, [0, 360].
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.KeepSize">
+            <summary>
+            Keep image size or not.
+            </summary>
+            
+            <remarks><para>The property determines if source image's size will be kept
+            as it is or not. If the value is set to <b>false</b>, then the new image will have
+            new dimension according to rotation angle. If the valus is set to
+            <b>true</b>, then the new image will have the same size, which means that some parts
+            of the image may be clipped because of rotation.</para>
+            </remarks>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.FillColor">
+            <summary>
+            Fill color.
+            </summary>
+            
+            <remarks><para>The fill color is used to fill areas of destination image,
+            which don't have corresponsing pixels in source image.</para></remarks>
+            
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.Grayscale">
+            <summary>
+            Summary description for Grayscale.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.Grayscale.ProcessFilter(Dynamsoft.Core.ImageFilter.UnmanagedImage,Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+            <summary>
+            Process the filter on the specified image.
+            </summary>
+            
+            <param name="sourceData">Source image data.</param>
+            <param name="destinationData">Destination image data.</param>
+            
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.R">
+            <summary>
+            Index of red component.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.G">
+            <summary>
+            Index of green component.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.B">
+            <summary>
+            Index of blue component.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.A">
+            <summary>
+            Index of alpha component for ARGB images.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.Red">
+            <summary>
+            Red component.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.Green">
+            <summary>
+            Green component.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.RGB.Blue">
+            <summary>
+            Blue component.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RGB.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RGB"/> class.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RGB.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RGB"/> class.
+            </summary>
+            
+            <param name="red">Red component.</param>
+            <param name="green">Green component.</param>
+            <param name="blue">Blue component.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RGB.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RGB"/> class.
+            </summary>
+            
+            <param name="color">Initialize from specified <see cref="T:System.Drawing.Color">color.</see></param>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.RGB.Color">
+            <summary>
+            <see cref="T:System.Drawing.Color">Color</see> value of the class.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.RotateBicubic">
+             <summary>
+             Rotate image using bicubic interpolation.
+             </summary>
+             
+             <remarks><para>The class implements image rotation filter using bicubic
+             interpolation algorithm.</para>
+             
+             <para><note>Rotation is performed in counterclockwise direction.</note></para>
+             
+             <para>The filter accepts 8 bpp grayscale images and 24 bpp
+             color images for processing.</para>
+            
+             <para>Sample usage:</para>
+             <code>
+             // create filter - rotate for 30 degrees keeping original image size
+             RotateBicubic filter = new RotateBicubic( 30, true );
+             // apply the filter
+             Bitmap newImage = filter.Apply( image );
+             </code>
+             
+             <para><b>Initial image:</b></para>
+             <img src="img/imaging/sample9.png" width="320" height="240"/>
+             <para><b>Result image:</b></para>
+             <img src="img/imaging/rotate_bicubic.png" width="320" height="240"/>
+             </remarks>
+             
+             <seealso cref="T:Dynamsoft.Core.ImageFilter.RotateBilinear"/>
+             <seealso cref="T:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor"/>
+             
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateBicubic.#ctor(System.Double)">
+             <summary>
+             Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RotateBicubic"/> class.
+             </summary>
+             
+             <param name="angle">Rotation angle.</param>
+             
+             <remarks><para>This constructor sets <see cref="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.KeepSize"/> property
+             to <see langword="false"/>.</para>
+             </remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateBicubic.#ctor(System.Double,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RotateBicubic"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            <param name="keepSize">Keep image size or not.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateBicubic.ProcessFilter(Dynamsoft.Core.ImageFilter.UnmanagedImage,Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+             <summary>
+             Process the filter on the specified image.
+             </summary>
+             
+             <param name="sourceData">Source image data.</param>
+             <param name="destinationData">Destination image data.</param>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.RotateBicubic.FormatTransalations">
+            <summary>
+            Format translations dictionary.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.Interpolation.BiCubicKernel(System.Double)">
+            <summary>
+            Bicubic kernel.
+            </summary>
+            
+            <param name="x">X value.</param>
+            
+            <returns>Bicubic cooefficient.</returns>
+            
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.RotateBilinear">
+             <summary>
+             Rotate image using bilinear interpolation.
+             </summary>
+             
+             <para><note>Rotation is performed in counterclockwise direction.</note></para>
+             
+             <remarks><para>The class implements image rotation filter using bilinear
+             interpolation algorithm.</para>
+             
+             <para>The filter accepts 8 bpp grayscale images and 24 bpp
+             color images for processing.</para>
+            
+             <para>Sample usage:</para>
+             <code>
+             // create filter - rotate for 30 degrees keeping original image size
+             RotateBilinear filter = new RotateBilinear( 30, true );
+             // apply the filter
+             Bitmap newImage = filter.Apply( image );
+             </code>
+             
+             <para><b>Initial image:</b></para>
+             <img src="img/imaging/sample9.png" width="320" height="240"/>
+             <para><b>Result image:</b></para>
+             <img src="img/imaging/rotate_bilinear.png" width="320" height="240"/>
+             </remarks>
+             
+             <seealso cref="T:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor"/>
+             <seealso cref="T:Dynamsoft.Core.ImageFilter.RotateBicubic"/>
+             
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateBilinear.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RotateBilinear"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            
+            <remarks><para>This constructor sets <see cref="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.KeepSize"/> property
+            to <see langword="false"/>.</para>
+            </remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateBilinear.#ctor(System.Double,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RotateBilinear"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            <param name="keepSize">Keep image size or not.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateBilinear.ProcessFilter(Dynamsoft.Core.ImageFilter.UnmanagedImage,Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+             <summary>
+             Process the filter on the specified image.
+             </summary>
+             
+             <param name="sourceData">Source image data.</param>
+             <param name="destinationData">Destination image data.</param>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.RotateBilinear.FormatTransalations">
+            <summary>
+            Format translations dictionary.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor">
+             <summary>
+             Rotate image using nearest neighbor algorithm.
+             </summary>
+             
+             <remarks><para>The class implements image rotation filter using nearest
+             neighbor algorithm, which does not assume any interpolation.</para>
+             
+             <para><note>Rotation is performed in counterclockwise direction.</note></para>
+             
+             <para>The filter accepts 8 bpp grayscale images and 24 bpp
+             color images for processing.</para>
+            
+             <para>Sample usage:</para>
+             <code>
+             // create filter - rotate for 30 degrees keeping original image size
+             RotateNearestNeighbor filter = new RotateNearestNeighbor( 30, true );
+             // apply the filter
+             Bitmap newImage = filter.Apply( image );
+             </code>
+             
+             <para><b>Initial image:</b></para>
+             <img src="img/imaging/sample9.png" width="320" height="240"/>
+             <para><b>Result image:</b></para>
+             <img src="img/imaging/rotate_nearest.png" width="320" height="240"/>
+             </remarks>
+             
+             <seealso cref="T:Dynamsoft.Core.ImageFilter.RotateBilinear"/>
+             <seealso cref="T:Dynamsoft.Core.ImageFilter.RotateBicubic"/>
+             
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            
+            <remarks><para>This constructor sets <see cref="P:Dynamsoft.Core.ImageFilter.BaseRotateFilter.KeepSize"/> property to
+            <see langword="false"/>.
+            </para></remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor.#ctor(System.Double,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor"/> class.
+            </summary>
+            
+            <param name="angle">Rotation angle.</param>
+            <param name="keepSize">Keep image size or not.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor.ProcessFilter(Dynamsoft.Core.ImageFilter.UnmanagedImage,Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+            <summary>
+            Process the filter on the specified image.
+            </summary>
+            
+            <param name="sourceData">Source image data.</param>
+            <param name="destinationData">Destination image data.</param>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.RotateNearestNeighbor.FormatTransalations">
+            <summary>
+            Format translations dictionary.
+            </summary>
+        </member>
+        <member name="F:Dynamsoft.Core.ImageFilter.Threshold.threshold">
+            <summary>
+            Threshold value.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.Threshold.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.Threshold"/> class.
+            </summary>
+            
+            <param name="threshold">Threshold value.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.Threshold.ProcessFilter(Dynamsoft.Core.ImageFilter.UnmanagedImage,System.Drawing.Rectangle)">
+            <summary>
+            Process the filter on the specified image.
+            </summary>
+            
+            <param name="image">Source image data.</param>
+            <param name="rect">Image rectangle for processing by the filter.</param>
+            
+        </member>
+        <member name="T:Dynamsoft.Core.ImageFilter.UnmanagedImage">
+            <summary>
+            Summary description for UnmanagedImage.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.#ctor(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Drawing.Imaging.PixelFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.UnmanagedImage"/> class.
+            </summary>
+            
+            <param name="imageData">Pointer to image data in unmanaged memory.</param>
+            <param name="width">Image width in pixels.</param>
+            <param name="height">Image height in pixels.</param>
+            <param name="stride">Image stride (line size in bytes).</param>
+            <param name="pixelFormat">Image pixel format.</param>
+            
+            <remarks><para><note>Using this constructor, make sure all specified image attributes are correct
+            and correspond to unmanaged memory buffer. If some attributes are specified incorrectly,
+            this may lead to exceptions working with the unmanaged memory.</note></para></remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.#ctor(System.Drawing.Imaging.BitmapData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dynamsoft.Core.ImageFilter.UnmanagedImage"/> class.
+            </summary>
+            
+            <param name="bitmapData">Locked bitmap data.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Finalize">
+            <summary>
+            Destroys the instance of the <see cref="T:Dynamsoft.Core.ImageFilter.UnmanagedImage"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Dispose">
+            <summary>
+            Dispose the object.
+            </summary>
+            
+            <remarks><para>Frees unmanaged resources used by the object. The object becomes unusable
+            after that.</para>
+            
+            <par><note>The method needs to be called only in the case if unmanaged image was allocated
+            using <see cref="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Create(System.Int32,System.Int32,System.Drawing.Imaging.PixelFormat)"/> method. In the case if the class instance was created using constructor,
+            this method does not free unmanaged memory.</note></par>
+            </remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Dispose(System.Boolean)">
+            <summary>
+            Dispose the object.
+            </summary>
+            
+            <param name="disposing">Indicates if disposing was initiated manually.</param>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Clone">
+            <summary>
+            Clone the unmanaged images.
+            </summary>
+            
+            <returns>Returns clone of the unmanaged image.</returns>
+            
+            <remarks><para>The method does complete cloning of the object.</para></remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Copy(Dynamsoft.Core.ImageFilter.UnmanagedImage)">
+            <summary>
+            Copy unmanaged image.
+            </summary>
+            
+            <param name="destImage">Destination image to copy this image to.</param>
+            
+            <remarks><para>The method copies current unmanaged image to the specified image.
+            Size and pixel format of the destination image must be exactly the same.</para></remarks>
+            
+            <exception cref="!:InvalidImagePropertiesException">Destination image has different size or pixel format.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.Create(System.Int32,System.Int32,System.Drawing.Imaging.PixelFormat)">
+            <summary>
+            Allocate new image in unmanaged memory.
+            </summary>
+            
+            <param name="width">Image width.</param>
+            <param name="height">Image height.</param>
+            <param name="pixelFormat">Image pixel format.</param>
+            
+            <returns>Return image allocated in unmanaged memory.</returns>
+            
+            <remarks><para>Allocate new image with specified attributes in unmanaged memory.</para>
+            
+            <para><note>The method supports only
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format8bppIndexed</see>,
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format16bppGrayScale</see>,
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format24bppRgb</see>,
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format32bppRgb</see>,
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format32bppArgb</see>,
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format48bppRgb</see> and
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format64bppArgb</see> pixel formats.
+            In the case if <see cref="T:System.Drawing.Imaging.PixelFormat">Format8bppIndexed</see>
+            format is specified, pallete is not not created for the image (supposed that it is
+            8 bpp grayscale image).
+            </note></para>
+            </remarks>
+            
+            <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format was specified.</exception>
+            <exception cref="!:InvalidImagePropertiesException">Invalid image size was specified.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.ToManagedImage">
+            <summary>
+            Create managed image from the unmanaged.
+            </summary>
+            
+            <returns>Returns managed copy of the unmanaged image.</returns>
+            
+            <remarks><para>The method creates a managed copy of the unmanaged image with the
+            same size and pixel format.</para></remarks>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.SetGrayscalePalette(System.Drawing.Bitmap)">
+            <summary>
+            Set pallete of the 8 bpp indexed image to grayscale.
+            </summary>
+            
+            <param name="image">Image to initialize.</param>
+            
+            <remarks>The method initializes palette of
+            <see cref="T:System.Drawing.Imaging.PixelFormat">Format8bppIndexed</see>
+            image with 256 gradients of gray color.</remarks>
+            
+            <exception cref="!:UnsupportedImageFormatException">Provided image is not 8 bpp indexed image.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.FromManagedImage(System.Drawing.Bitmap)">
+            <summary>
+            Create unmanaged image from the specified managed image.
+            </summary>
+            
+            <param name="image">Source managed image.</param>
+            
+            <returns>Returns new unmanaged image, which is a copy of source managed image.</returns>
+            
+            <remarks><para>The method creates an exact copy of specified managed image, but allocated
+            in unmanaged memory.</para></remarks>
+            
+            <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format of source image.</exception>
+            
+        </member>
+        <member name="M:Dynamsoft.Core.ImageFilter.UnmanagedImage.FromManagedImage(System.Drawing.Imaging.BitmapData)">
+            <summary>
+            Create unmanaged image from the specified managed image.
+            </summary>
+            
+            <param name="imageData">Source locked image data.</param>
+            
+            <returns>Returns new unmanaged image, which is a copy of source managed image.</returns>
+            
+            <remarks><para>The method creates an exact copy of specified managed image, but allocated
+            in unmanaged memory.</para></remarks>
+            
+            <exception cref="!:UnsupportedImageFormatException">Unsupported pixel format of source image.</exception>
+            
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.UnmanagedImage.ImageData">
+            <summary>
+            Pointer to image data in unmanaged memory.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.UnmanagedImage.Width">
+            <summary>
+            Image width in pixels.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.UnmanagedImage.Height">
+            <summary>
+            Image height in pixels.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.UnmanagedImage.Stride">
+            <summary>
+            Image stride (line size in bytes).
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.ImageFilter.UnmanagedImage.PixelFormat">
+            <summary>
+            Image pixel format.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Interface.OnPreLoadPageEventArgs">
+            <summary>
+            Provides the cancel interface for event OnInternetTransferPercentage.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Delegate.OnInternetTransferPercentageHandler">
+            <summary>
+            Occurs when uploading or downloading images via HTTP or FTP.
+            </summary>
+            <param name="sPercent">Specifies upload or download progress.</param>
+            <param name="cancel">Specifies if canncel upload or download. If you want to cancel upload or download, please set its member Cancelled value as true.</param>
+            <remarks>
+            This event is triggered when user uploads or downloads images via HTTP or FTP.
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Dynamsoft.Core.Delegate.OnPostLoadHandler" -->
+        <!-- Badly formed XML comment ignored for member "T:Dynamsoft.Core.Delegate.OnPrePageLoadHandler" -->
+        <member name="T:Dynamsoft.Core.Delegate.OnUpdatedHandler">
+            <summary>
+            Occurs after image Update.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Dynamsoft.Core.Delegate.OnRemovedHandler">
+            <summary>
+            Occurs after image remove.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Dynamsoft.Core.Delegate.OnAddedHandler">
+            <summary>
+            Occurs after image add.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Dynamsoft.Core.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_VERSION">
+            <summary>
+            /* No DAT needed.  Describes version of software currently running. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_HANDLE">
+            <summary>
+            Memory handle define
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_FIX32">
+            <summary>
+            /* Fixed point structure type. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_EVENT">
+            <summary>
+            /* DAT_EVENT. For passing events down from the application to the DS. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_FRAME">
+            <summary>
+            /* No DAT.  Defines a frame rectangle in ICAP_UNITS coordinates. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_ONEVALUE">
+            <summary>
+            /* TWON_ONEVALUE. Container for one value. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_MEMORY">
+            <summary>
+            /* No DAT needed.  Used to manage memory buffers. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.TwainDefine.TW_ELEMENT8">
+            <summary>
+            /* No DAT needed. */
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Web.FtpClient">
+            <summary>
+            Summary description for FtpClient.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.#ctor(System.String,System.String,System.String,System.UInt16,System.Boolean,System.String,System.UInt16,System.String,System.String,Dynamsoft.Core.Interface.INetEvent)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="server">服务器</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <param name="port">端口号</param>
+            <param name="bIfFTPPassiveMode">是否被动传输</param>
+            <param name="strProxyServerName">代理服务器名</param>
+            <param name="usProxyProt">代理服务器端口号</param>
+            <param name="strProxyUserName">代理服务的用户</param>
+            <param name="strProxyassword">代理服务的密码</param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.Download(System.String,System.IO.Stream@)">
+            <summary>
+            Download a remote file to a local file name which can include
+            a path, and set the resume flag. The local file name will be
+            created or overwritten, but the path must exist.
+            </summary>
+            <param name="remFileName"></param>
+            <param name="locFileName"></param>
+            <param name="resume"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.Upload(System.Byte[],System.String)">
+            <summary>
+            Upload a file and set the resume flag.
+            </summary>
+            <param name="fileName"></param>
+            <param name="resume"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.Login">
+            <summary>
+            Login to the remote server.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.Close">
+            <summary>
+            Close the FTP connection.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.GetFileSize(System.String)">
+            <summary>
+            Return the size of a file.
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.DeleteFile(System.String)">
+            <summary>
+            Delete a file from the remote FTP server.
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.readResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.readLine">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.sendCommand(System.String)">
+            <summary>
+            sendCommand
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.createDataSocketForPass">
+            <summary>
+            when doing data transfers, we need to open another socket for it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.createDataSocket">
+            <summary>
+            when doing data transfers, we need to open another socket for it.
+            </summary>
+            <returns>Connected socket</returns>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.cleanup">
+            <summary>
+            Always release those sockets.
+            </summary>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.Shake_hands(System.Net.Sockets.Socket)">
+            <summary>
+            协议握手
+            </summary>
+            <param name="socket"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.ValidateIndentity(System.Net.Sockets.Socket)">
+            <summary>
+            代理服务的用户名密码验证
+            格式为：ox01| 用户名长度|用户名|密码长度|密码
+            </summary>
+            <param name="socket"></param>
+        </member>
+        <member name="M:Dynamsoft.Core.Web.FtpClient.Protocol_Request(System.Net.Sockets.Socket,System.Net.IPEndPoint)">
+            <summary>
+            协议请求
+            </summary>
+            <param name="socket"></param>
+            <param name="destIp"></param>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.FtpClient.Port">
+            <summary>
+            Remote server port. Typically TCP 21
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.FtpClient.Server">
+            <summary>
+            Gets and Sets the name of the FTP server.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.FtpClient.Username">
+            <summary>
+            Gets and Sets the username.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.FtpClient.Password">
+            <summary>
+            Gets and Set the password.
+            </summary>
+        </member>
+        <member name="T:Dynamsoft.Core.Web.HttpClient">
+            <summary>
+            Summary description for HttpClient.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.HttpClient.HTTPUsername">
+            <summary>
+            Gets and Sets the username.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.HttpClient.HTTPPassword">
+            <summary>
+            Gets and Set the password.
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.HttpClient.HTTPPort">
+            <summary>
+            Remote server port. Typically TCP 21
+            </summary>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.HttpClient.HTTPServer">
+            <summary>
+            Gets and Sets the name of the FTP server.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Dynamsoft.Core.Web.HttpClient.IFSSL">
+            <summary>
+            Gets and Sets ifssl.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<scanner>
+  <info>
+    <serverName>ftp://system.cmcc.sa/Attachment/</serverName>
+    <serverUserName>cmccsa</serverUserName>
+    <serverUserPasword>Q=evGDJ3</serverUserPasword>
+    <dbserver>158.69.24.141,5060</dbserver>
+    <dbname>cmcc_clinic</dbname>
+    <dbUserName>cmcc_clinic</dbUserName>
+    <dbUserPassword>)}JC3{iW</dbUserPassword>
+  </info>
+</scanner>
